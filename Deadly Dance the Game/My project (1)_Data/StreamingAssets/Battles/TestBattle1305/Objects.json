@@ -1,0 +1,37 @@
+{
+    "scene_object": [
+        {
+            "editorID": 8,
+            "objectIDs": [
+                10,
+                1
+            ],
+            "spriteName": "Glow.png",
+            "alpha": 15.0,
+            "Xpos": 0.0,
+            "Ypos": 50.0,
+            "scale": 0.6000000238418579,
+            "zOrder": 10
+        },
+        {
+            "editorID": 9,
+            "objectIDs": [],
+            "spriteName": "Maestro_Battle-Idle_f1.png",
+            "alpha": 100.0,
+            "Xpos": 0.0,
+            "Ypos": 50.0,
+            "scale": 0.5,
+            "zOrder": 20
+        },
+        {
+            "editorID": 10,
+            "objectIDs": [],
+            "spriteName": "Scrap_artist_Standing.png",
+            "alpha": 50.0,
+            "Xpos": -300.0,
+            "Ypos": 100.0,
+            "scale": 0.5,
+            "zOrder": 10
+        }
+    ]
+}
