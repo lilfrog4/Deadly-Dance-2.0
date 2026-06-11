@@ -11,12 +11,58 @@ using System.Linq;
 using SFB;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 
 public class EditorScript : MonoBehaviour
 {
+
+
+    public Sprite OneWide;
+    public Sprite TwoWide;
+    public Sprite ThreeWide;
+    public Sprite FourWide;
+    public Sprite FiveWide;
+
+    public Sprite OneWideS;
+    public Sprite TwoWideS;
+    public Sprite ThreeWideS;
+    public Sprite FourWideS;
+    public Sprite FiveWideS;
+
+    public Sprite WallShield;
+    public Sprite Wall;
+
+    public Sprite OneWideOutline;
+    public Sprite TwoWideOutline;
+    public Sprite ThreeWideOutline;
+    public Sprite FourWideOutline;
+    public Sprite FiveWideOutline;
+
+    public Sprite OneWideSOutline;
+    public Sprite TwoWideSOutline;
+    public Sprite ThreeWideSOutline;
+    public Sprite FourWideSOutline;
+    public Sprite FiveWideSOutline;
+
+    public Sprite RegularWallOutline;
+    public Sprite ShieldWallOutline;
+    public Sprite CrackerNoteOutline;
+
+    private Sprite[] SimpleNoteSprites;
+    private Sprite[] SimpleShieldNoteSprites;
+    private Sprite[] WallNoteSprites;
+
+    private Sprite[] SimpleNoteOutlines;
+    private Sprite[] SimpleShieldNoteOutlines;
+    private Sprite[] WallOutlines;
+
+
+
     public string BattleName;
     public GameObject AudioSource;
+
+    private GameObject WidthButtonsContainer;
 
     public GameObject SpriteWindow;
     private GameObject[] SpriteWindows;
@@ -58,6 +104,8 @@ public class EditorScript : MonoBehaviour
     public Button Selected_Tool_Button;
     public Button SelectedColorButton;
     public Button SelectedSpeedButton;
+    public bool SelectedPunchable;
+    public GameObject PunchableToggle;
     public GameObject SpeedValueObject;
     public GameObject DelayValueObject;
     private string DelayValueText;
@@ -162,7 +210,7 @@ public class EditorScript : MonoBehaviour
         public float delay;
         public int speed;
         public int width;
-        public bool absorbable = true;
+        public bool absorbable = false;
         public bool punchable = true;
     }
 
@@ -188,7 +236,7 @@ public class EditorScript : MonoBehaviour
         public List<int> rand_lanes;
         public float delay;
         public int speed;
-        public bool absorbable = true;
+        public bool absorbable = false;
         public bool punchable = true;
     }
 
@@ -214,7 +262,7 @@ public class EditorScript : MonoBehaviour
         public List<int> rand_lanes;
         public float delay;
         public int speed;
-        public bool absorbable = true;
+        public bool absorbable = false;
         public bool punchable = true;
     }
 
@@ -296,14 +344,28 @@ public class EditorScript : MonoBehaviour
         {
             Color NoteColor = Selected_Note.GetComponent<Image>().color;
             Selected_Note.GetComponent<Image>().color = new Color32(System.Convert.ToByte(NoteColor.r * 255), System.Convert.ToByte(NoteColor.g * 255), System.Convert.ToByte(NoteColor.b * 255), System.Convert.ToByte(255f));
+            Selected_Note.transform.GetChild(0).GetComponent<Image>().color = new Color32(System.Convert.ToByte(255), System.Convert.ToByte(255), System.Convert.ToByte(255), System.Convert.ToByte(255f));
         }
         Selected_Note = Note.gameObject;
         Color Note_Color = Selected_Note.GetComponent<Image>().color;
         // Selected_Note.GetComponent<Image>().color = new Color(79f / 255f, 79f / 255f, 79f / 255f);
         Selected_Note.GetComponent<Image>().color = new Color32(System.Convert.ToByte(Note_Color.r * 255), System.Convert.ToByte(Note_Color.g * 255), System.Convert.ToByte(Note_Color.b * 255), System.Convert.ToByte(70f));
+        Selected_Note.transform.GetChild(0).GetComponent<Image>().color = new Color32(System.Convert.ToByte(255), System.Convert.ToByte(255), System.Convert.ToByte(255), System.Convert.ToByte(50f));
 
         SpeedValueText = Selected_Note.GetComponent<SimpleNoteStats>().speed.ToString();
         DelayValueText = Selected_Note.GetComponent<SimpleNoteStats>().delay.ToString();
+
+        string noteType = Selected_Note.GetComponent<SimpleNoteStats>().type;
+        if (noteType == "wall_note" || noteType == "simple_note")
+        {
+            PunchableToggle.GetComponent<Toggle>().interactable = true;
+        }
+        else
+        {
+            PunchableToggle.GetComponent<Toggle>().interactable = false;
+        }
+
+        PunchableToggle.GetComponent<Toggle>().isOn = Selected_Note.GetComponent<SimpleNoteStats>().Punchable;
     }
 
 
@@ -338,7 +400,22 @@ public class EditorScript : MonoBehaviour
     public void SetNoteWidth(int Width)         // Задает ширину ноты
     {
         Selected_Note.gameObject.GetComponent<SimpleNoteStats>().width = Width;
-        Selected_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * Width * 1.3f, 1 * 18);
+        Selected_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * Width * 1.3f, 1 * 18);                                     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Selected_Note.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(64 * Width * 1.3f, 1 * 18);
+
+        if (Selected_Note.GetComponent<SimpleNoteStats>().type == "simple_note")
+        {
+            if (Selected_Note.GetComponent<SimpleNoteStats>().Punchable)
+            {
+                Selected_Note.GetComponent<Image>().sprite = SimpleNoteSprites[Width - 1];
+                Selected_Note.transform.GetChild(0).GetComponent<Image>().sprite = SimpleNoteOutlines[Width - 1];
+            }
+            else
+            {
+                Selected_Note.GetComponent<Image>().sprite = SimpleShieldNoteSprites[Width - 1];
+                Selected_Note.transform.GetChild(0).GetComponent<Image>().sprite = SimpleShieldNoteOutlines[Width - 1];
+            }
+        }
 
         if (Width == 1 || Width == 3 || Width == 5)
         {
@@ -364,14 +441,52 @@ public class EditorScript : MonoBehaviour
         }
     }
 
+    public void SetWidth(GameObject Note, int Width)
+    {
+        Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * Width * 1.3f, 1 * 18);
+        Note.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(64 * Width * 1.3f, 1 * 18);
+        if (Note.GetComponent<SimpleNoteStats>().type == "simple_note")
+        {
+            if (Note.GetComponent<SimpleNoteStats>().Punchable)
+            {
+                Note.GetComponent<Image>().sprite = SimpleNoteSprites[Width - 1];
+                Note.transform.GetChild(0).GetComponent<Image>().sprite = SimpleNoteOutlines[Width - 1];
+            }
+            else
+            {
+                Note.GetComponent<Image>().sprite = SimpleShieldNoteSprites[Width - 1];
+                Note.transform.GetChild(0).GetComponent<Image>().sprite = SimpleShieldNoteOutlines[Width - 1];
+            }
+        }
+        else if (Note.GetComponent<SimpleNoteStats>().type == "wall_note")
+        {
+            int num = Note.GetComponent<SimpleNoteStats>().Punchable ? 1 : 0;
+            Note.GetComponent<Image>().sprite = WallNoteSprites[num];
+            Note.transform.GetChild(0).GetComponent<Image>().sprite = WallOutlines[num];
+        }
+
+        if (Width == 1 || Width == 3 || Width == 5)
+        {
+            Note.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+        }
+        else if (Width == 2)
+        {
+            Note.GetComponent<RectTransform>().pivot = new Vector2(0.20f, 0.5f);
+        }
+        else if (Width == 4)
+        {
+            Note.GetComponent<RectTransform>().pivot = new Vector2(0.11f, 0.5f);
+        }
+    }
+
     public void SetSelectedSpeedButton(Button SpeedButton)
     {
         if (SelectedSpeedButton != null)
         {
-            SelectedSpeedButton.transform.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(0f, 0f, 0f);
+            SelectedSpeedButton.transform.parent.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(0f, 0f, 0f);
         }
         SelectedSpeedButton = SpeedButton;
-        SelectedSpeedButton.transform.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+        SelectedSpeedButton.transform.parent.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(255f, 255f, 255f);
 
         int speed = int.Parse(SpeedButton.transform.Find("Value").gameObject.GetComponent<TMP_Text>().text);
 
@@ -437,10 +552,10 @@ public class EditorScript : MonoBehaviour
     {
         if (SelectedColorButton != null)
         {
-            SelectedColorButton.transform.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(0f, 0f, 0f);
+            SelectedColorButton.transform.parent.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(0f, 0f, 0f);
         }
         SelectedColorButton = ColorButton;
-        SelectedColorButton.transform.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+        SelectedColorButton.transform.parent.Find("Highlight").gameObject.GetComponent<Image>().color = new Color(255f, 255f, 255f);
 
         if (Selected_Note != null)
         {
@@ -487,6 +602,57 @@ public class EditorScript : MonoBehaviour
         }
     }
 
+    public void ActivateSNoutline(bool active)
+    {
+        if (Selected_Note != null)
+        {
+            Selected_Note.transform.GetChild(0).gameObject.SetActive(active);
+        }
+    }
+
+    public void SwapSelectedPunchable()
+    {
+
+        SelectedPunchable = !SelectedPunchable;
+
+        if (Selected_Note != null)
+        {
+            Selected_Note.GetComponent<SimpleNoteStats>().Punchable = SelectedPunchable;
+            
+
+            int NoteID = Selected_Note.GetComponent<SimpleNoteStats>().editorID;
+            int ChunkID = (int)Math.Ceiling(Selected_Note.GetComponent<SimpleNoteStats>().delay / 0.7f);
+
+            if (Selected_Note.GetComponent<SimpleNoteStats>().type == "simple_note")
+            {
+                foreach (Simple_Note SN in SNdict[ChunkID].SNbatch)
+                {
+                    if (SN.editorID == NoteID)
+                    {
+                        SN.punchable = SelectedPunchable;
+                    }
+                }
+            }
+            else if (Selected_Note.GetComponent<SimpleNoteStats>().type == "wall_note")
+            {
+                foreach (Wall_Note WN in WNdict[ChunkID].WNbatch)
+                {
+                    if (WN.editorID == NoteID)
+                    {
+                        WN.punchable = SelectedPunchable;
+                    }
+                }
+            }
+
+            SetWidth(Selected_Note, Selected_Note.GetComponent<SimpleNoteStats>().width);
+        }
+    }
+
+    public void SetPunchToggleInteractable(bool interatable)
+    {
+        PunchableToggle.GetComponent<Toggle>().interactable = interatable;
+    }
+
     private void SetNoteAnchors(Button Note)
     {
         Vector3[] NoteCorners = new Vector3[4];
@@ -513,6 +679,8 @@ public class EditorScript : MonoBehaviour
             // Debug.Log(Closest_Y);
             // Debug.Log(Local_Y);
     }
+
+    // public void
 
 
     public void AddNote(Button Note)            // Ставит ноту
@@ -544,9 +712,12 @@ public class EditorScript : MonoBehaviour
             Added_Note.GetComponent<Image>().color = SelectedColorButton.colors.normalColor;
             Added_Note.GetComponent<SimpleNoteStats>().color = new List<float> { SelectedColorButton.colors.normalColor.r * 255, SelectedColorButton.colors.normalColor.g * 255, SelectedColorButton.colors.normalColor.b * 255 };
             Added_Note.GetComponent<SimpleNoteStats>().speed = int.Parse(SelectedSpeedButton.transform.Find("Value").gameObject.GetComponent<TMP_Text>().text);
+            // Added_Note.GetComponent<SimpleNoteStats>().Punchable = SelectedPunchable;
             
             Added_Note.GetComponent<SimpleNoteStats>().delay = delay;
             Added_Note.GetComponent<SimpleNoteStats>().rand_lanes = new List<int>() {(int)Closest_Lane};
+
+            Added_Note.GetComponent<SimpleNoteStats>().width = 1;
 
             OCdict[chunkNum].Add((int)preCoords);
 
@@ -567,6 +738,8 @@ public class EditorScript : MonoBehaviour
             {
                 Added_Note.GetComponent<SimpleNoteStats>().type = "simple_note"; 
 
+                Added_Note.GetComponent<SimpleNoteStats>().Punchable = SelectedPunchable;
+
                 Simple_Note SN = new Simple_Note();
                 SN.editorID = Added_Note.GetComponent<SimpleNoteStats>().editorID;
                 SN.color = Added_Note.GetComponent<SimpleNoteStats>().color;
@@ -574,6 +747,7 @@ public class EditorScript : MonoBehaviour
                 SN.delay = delay;
                 SN.speed = Added_Note.GetComponent<SimpleNoteStats>().speed;
                 SN.width = 1;
+                SN.punchable = Added_Note.GetComponent<SimpleNoteStats>().Punchable;
 
                 SNchunk newSNchunk = new SNchunk();
                 // int chunkNum = (int)Math.Ceiling(delay / 0.7f);
@@ -581,11 +755,14 @@ public class EditorScript : MonoBehaviour
                 Array.Resize(ref SNdict[chunkNum].SNbatch, SNdict[chunkNum].SNbatch.Length + 1);
                 SNdict[chunkNum].SNbatch[SNdict[chunkNum].SNbatch.Length - 1] = SN;
 
-                Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
+                // Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
+                SetWidth(Added_Note.gameObject, 1);
             }
             else if (Selected_Tool_Button == WallNoteButton)
             {
                 Added_Note.GetComponent<SimpleNoteStats>().type = "wall_note";
+
+                Added_Note.GetComponent<SimpleNoteStats>().Punchable = SelectedPunchable;
 
                 Wall_Note WN = new Wall_Note();
                 WN.editorID = Added_Note.GetComponent<SimpleNoteStats>().editorID;
@@ -593,6 +770,8 @@ public class EditorScript : MonoBehaviour
                 WN.rand_lanes = Added_Note.GetComponent<SimpleNoteStats>().rand_lanes;
                 WN.delay = delay;
                 WN.speed = Added_Note.GetComponent<SimpleNoteStats>().speed;
+                WN.punchable = Added_Note.GetComponent<SimpleNoteStats>().Punchable;
+
 
                 WNchunk newWNchunk = new WNchunk();
                 // int chunkNum = (int)Math.Ceiling(delay / 0.7f);
@@ -600,11 +779,20 @@ public class EditorScript : MonoBehaviour
                 Array.Resize(ref WNdict[chunkNum].WNbatch, WNdict[chunkNum].WNbatch.Length + 1);
                 WNdict[chunkNum].WNbatch[WNdict[chunkNum].WNbatch.Length - 1] = WN;
 
-                Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
+                // Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
+                SetWidth(Added_Note.gameObject, 1);
             }
             else if (Selected_Tool_Button == CrackerNoteButton)
             {
+                Toggle PunchToggle = PunchableToggle.GetComponent<Toggle>();
+                PunchToggle.isOn = true;
+                PunchToggle.interactable = false;
+                SelectedPunchable = true;
+                
+
                 Added_Note.GetComponent<SimpleNoteStats>().type = "cracker_note";
+
+                Added_Note.GetComponent<SimpleNoteStats>().Punchable = true;
 
                 Cracker_Note CN = new Cracker_Note();
                 CN.editorID = Added_Note.GetComponent<SimpleNoteStats>().editorID;
@@ -612,6 +800,7 @@ public class EditorScript : MonoBehaviour
                 CN.rand_lanes = Added_Note.GetComponent<SimpleNoteStats>().rand_lanes;
                 CN.delay = delay;
                 CN.speed = Added_Note.GetComponent<SimpleNoteStats>().speed;
+                CN.punchable = true;
 
                 CNchunk newCNchunk = new CNchunk();
                 // int chunkNum = (int)Math.Ceiling(delay / 0.7f);
@@ -620,8 +809,14 @@ public class EditorScript : MonoBehaviour
                 CNdict[chunkNum].CNbatch[CNdict[chunkNum].CNbatch.Length - 1] = CN;
 
                 Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
+                Added_Note.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
             }
-            
+
+
+            if (Added_Note.GetComponent<Image>().color.r != 0)
+            {
+                Added_Note.transform.GetChild(0).gameObject.SetActive(false);
+            }
             
             Added_Note.GetComponent<SimpleNoteStats>().occupied_space = (int)Mathf.Round(delay * 400f) + Closest_Lane;
 
@@ -660,12 +855,15 @@ public class EditorScript : MonoBehaviour
         Added_Note.GetComponent<SimpleNoteStats>().delay = (float)Math.Round(SN.delay, 2);
         Added_Note.GetComponent<SimpleNoteStats>().occupied_space = OC;
         Added_Note.GetComponent<SimpleNoteStats>().editorID = SN.editorID;
+        Added_Note.GetComponent<SimpleNoteStats>().Punchable = SN.punchable;
 
         Added_Note.onClick.AddListener(delegate { SetSelectedNote(Added_Note); });
 
         // Selected_Note.gameObject.GetComponent<SimpleNoteStats>().width = Width;
         int Width = SN.width;
-        Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * Width * 1.3f, 1 * 18);
+        // Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * Width * 1.3f, 1 * 18);                    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        SetWidth(Added_Note.gameObject, Width);
+        
         Added_Note.GetComponent<SimpleNoteStats>().width = SN.width;
 
         if (Width == 1 || Width == 3 || Width == 5)
@@ -679,6 +877,12 @@ public class EditorScript : MonoBehaviour
         else if (Width == 4)
         {
             Added_Note.GetComponent<RectTransform>().pivot = new Vector2(0.11f, 0.5f);
+        }
+
+        if (SN.color[0] != 0)
+        {
+            Debug.Log(SN.color[0]);
+            Added_Note.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
@@ -700,10 +904,19 @@ public class EditorScript : MonoBehaviour
         Added_Note.GetComponent<SimpleNoteStats>().occupied_space = OC;
         Added_Note.GetComponent<SimpleNoteStats>().editorID = WN.editorID;
         Added_Note.GetComponent<SimpleNoteStats>().width = 1;
+        Added_Note.GetComponent<SimpleNoteStats>().Punchable = WN.punchable;
 
         Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
 
         Added_Note.onClick.AddListener(delegate { SetSelectedNote(Added_Note); });
+
+        SetWidth(Added_Note.gameObject, 1);
+
+        if (WN.color[0] != 0)
+        {
+            Debug.Log(WN.color[0]);
+            Added_Note.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     public void DrawCrackerNote(Cracker_Note CN)
@@ -724,10 +937,19 @@ public class EditorScript : MonoBehaviour
         Added_Note.GetComponent<SimpleNoteStats>().occupied_space = OC;
         Added_Note.GetComponent<SimpleNoteStats>().editorID = CN.editorID;
         Added_Note.GetComponent<SimpleNoteStats>().width = 1;
+        Added_Note.GetComponent<SimpleNoteStats>().Punchable = true;
 
         Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
+        Added_Note.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(64 * 1.3f, 1 * 18);
+
 
         Added_Note.onClick.AddListener(delegate { SetSelectedNote(Added_Note); });
+
+        if (CN.color[0] != 0)
+        {
+            Debug.Log(CN.color[0]);
+            Added_Note.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     public void DeleteNote()
@@ -774,6 +996,7 @@ public class EditorScript : MonoBehaviour
         }
 
         Destroy(Selected_Note);
+        PunchableToggle.GetComponent<Toggle>().interactable = true;
     }
 
     public void ImportFromJson()
@@ -1558,6 +1781,17 @@ public class EditorScript : MonoBehaviour
         Time.timeScale = 1f;
         BattleName = BattleManagerScript.battleName;
 
+
+        SimpleNoteSprites = new Sprite[] { OneWide, TwoWide, ThreeWide, FourWide, FiveWide };
+        SimpleShieldNoteSprites = new Sprite[] { OneWideS, TwoWideS, ThreeWideS, FourWideS, FiveWideS };
+        WallNoteSprites = new Sprite[] { WallShield, Wall };
+
+        SimpleNoteOutlines = new Sprite[] { OneWideOutline, TwoWideOutline, ThreeWideOutline, FourWideOutline, FiveWideOutline };
+        SimpleShieldNoteOutlines = new Sprite[] { OneWideSOutline, TwoWideSOutline, ThreeWideSOutline, FourWideSOutline, FiveWideSOutline };
+        WallOutlines = new Sprite[] { ShieldWallOutline, RegularWallOutline };
+
+        WidthButtonsContainer = Parameter_Panel.transform.Find("WidthButtons").gameObject;
+
         scaleFactor = Screen.height / 1080f;
         NotesPerScreen = Screen.height / (scaleFactor * baseNoteScaling);
         
@@ -1807,27 +2041,56 @@ public class EditorScript : MonoBehaviour
         {
             foreach (Simple_Note SN in i.Value.SNbatch)
             {
-                    Array.Resize(ref SNlist, SNlist.Length + 1);
-                    SNlist[SNlist.Length - 1] = new Simple_Note();
-                    SNlist[SNlist.Length - 1] = SN;
+                if (SN.color[0] != 0)
+                {
+                    SN.absorbable = true;
+                }
+                else
+                {
+                    SN.absorbable = false;
+                }
+
+                Array.Resize(ref SNlist, SNlist.Length + 1);
+                SNlist[SNlist.Length - 1] = new Simple_Note();
+                SNlist[SNlist.Length - 1] = SN;
             }
         }
         foreach (KeyValuePair<int, WNchunk> i in WNdict)
         {
             foreach (Wall_Note WN in i.Value.WNbatch)
             {
-                    Array.Resize(ref WNlist, WNlist.Length + 1);
-                    WNlist[WNlist.Length - 1] = new Wall_Note();
-                    WNlist[WNlist.Length - 1] = WN;
+                if (WN.color[0] != 0)
+                {
+                   WN.absorbable = true;
+                }
+                else
+                {
+                    WN.absorbable = false;
+                }
+
+                Array.Resize(ref WNlist, WNlist.Length + 1);
+                WNlist[WNlist.Length - 1] = new Wall_Note();
+                WNlist[WNlist.Length - 1] = WN;
             }
         }
         foreach (KeyValuePair<int, CNchunk> i in CNdict)
         {
             foreach (Cracker_Note CN in i.Value.CNbatch)
             {
-                    Array.Resize(ref CNlist, CNlist.Length + 1);
-                    CNlist[CNlist.Length - 1] = new Cracker_Note();
-                    CNlist[CNlist.Length - 1] = CN;
+                if (CN.color[0] != 0)
+                {
+                    CN.absorbable = true;
+                }
+                else
+                {
+                    CN.absorbable = false;
+                }
+
+                CN.punchable = true;
+
+                Array.Resize(ref CNlist, CNlist.Length + 1);
+                CNlist[CNlist.Length - 1] = new Cracker_Note();
+                CNlist[CNlist.Length - 1] = CN;
             }
         }
 
@@ -2106,19 +2369,20 @@ public class EditorScript : MonoBehaviour
         {
             if (Selected_Note.GetComponent<SimpleNoteStats>().type == "simple_note")
             {
-                Parameter_Panel.transform.Find("Width-1").GetComponent<Button>().interactable = true;
-                Parameter_Panel.transform.Find("Width-2").GetComponent<Button>().interactable = true;
-                Parameter_Panel.transform.Find("Width-3").GetComponent<Button>().interactable = true;
-                Parameter_Panel.transform.Find("Width-4").GetComponent<Button>().interactable = true;
-                Parameter_Panel.transform.Find("Width-5").GetComponent<Button>().interactable = true;
+                
+                WidthButtonsContainer.transform.Find("Width-1").GetComponent<Button>().interactable = true;
+                WidthButtonsContainer.transform.Find("Width-2").GetComponent<Button>().interactable = true;
+                WidthButtonsContainer.transform.Find("Width-3").GetComponent<Button>().interactable = true;
+                WidthButtonsContainer.transform.Find("Width-4").GetComponent<Button>().interactable = true;
+                WidthButtonsContainer.transform.Find("Width-5").GetComponent<Button>().interactable = true;
             }
             else
             {
-                Parameter_Panel.transform.Find("Width-1").GetComponent<Button>().interactable = false;
-                Parameter_Panel.transform.Find("Width-2").GetComponent<Button>().interactable = false;
-                Parameter_Panel.transform.Find("Width-3").GetComponent<Button>().interactable = false;
-                Parameter_Panel.transform.Find("Width-4").GetComponent<Button>().interactable = false;
-                Parameter_Panel.transform.Find("Width-5").GetComponent<Button>().interactable = false;
+                WidthButtonsContainer.transform.Find("Width-1").GetComponent<Button>().interactable = false;
+                WidthButtonsContainer.transform.Find("Width-2").GetComponent<Button>().interactable = false;
+                WidthButtonsContainer.transform.Find("Width-3").GetComponent<Button>().interactable = false;
+                WidthButtonsContainer.transform.Find("Width-4").GetComponent<Button>().interactable = false;
+                WidthButtonsContainer.transform.Find("Width-5").GetComponent<Button>().interactable = false;
             }
 
             SpeedValueObject.GetComponent<TMP_Text>().text = SpeedValueText;
@@ -2126,11 +2390,11 @@ public class EditorScript : MonoBehaviour
         }
         else
         {
-            Parameter_Panel.transform.Find("Width-1").GetComponent<Button>().interactable = false;
-            Parameter_Panel.transform.Find("Width-2").GetComponent<Button>().interactable = false;
-            Parameter_Panel.transform.Find("Width-3").GetComponent<Button>().interactable = false;
-            Parameter_Panel.transform.Find("Width-4").GetComponent<Button>().interactable = false;
-            Parameter_Panel.transform.Find("Width-5").GetComponent<Button>().interactable = false;
+            WidthButtonsContainer.transform.Find("Width-1").GetComponent<Button>().interactable = false;
+            WidthButtonsContainer.transform.Find("Width-2").GetComponent<Button>().interactable = false;
+            WidthButtonsContainer.transform.Find("Width-3").GetComponent<Button>().interactable = false;
+            WidthButtonsContainer.transform.Find("Width-4").GetComponent<Button>().interactable = false;
+            WidthButtonsContainer.transform.Find("Width-5").GetComponent<Button>().interactable = false;
 
             SpeedValueObject.GetComponent<TMP_Text>().text = "";
             DelayValueObject.GetComponent<TMP_Text>().text = "";

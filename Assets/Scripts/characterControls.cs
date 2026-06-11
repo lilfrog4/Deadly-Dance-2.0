@@ -11,9 +11,17 @@ public class characterControls : MonoBehaviour
     public GameObject PlayerHitbox;
     public GameObject PunchHitbox;
     public GameObject AbsorbHitbox;
+
     public GameObject SmallAttack;
     public GameObject MediumAttack;
     public GameObject HeavyAttack;
+
+    public GameObject LandParticles;
+    public GameObject MoveParticles;
+    private Animator LPAnimator;
+    private Animator MPAnimator;
+    private SpriteRenderer MPSpriteRenderer;
+
     private float Hitbox_Grounded_Y;
 
     public Transform chel;
@@ -51,6 +59,8 @@ public class characterControls : MonoBehaviour
     private CharactersValues CharValues;
     public GameObject ChargeText;
 
+    public bool Paused = false;
+
     Coroutine myCoroutine;
 
     private List<float> laneList = new List<float>() {-4f, -2f, 0f, 2f, 4f};            // Координаты рядов
@@ -59,17 +69,26 @@ public class characterControls : MonoBehaviour
     {
         CharValues = PlayerHitbox.GetComponent<CharactersValues>();
 
+        LPAnimator = LandParticles.GetComponent<Animator>();
+        MPAnimator = MoveParticles.GetComponent<Animator>();
+        MPSpriteRenderer = MoveParticles.GetComponent<SpriteRenderer>();
+
         Hitbox_Grounded_Y = PlayerHitbox.transform.position.y;
         PunchHitbox.SetActive(false);
         AbsorbHitbox.SetActive(false);
         // QualitySettings.vSyncCount = 0;
-        // Application.targetFrameRate = 30;
+        // Application.targetFrameRate = 60;
         // Time.timeScale = 0.5f;
     }
 
     void Update()
     {
         StartCoroutine(frameCompare());
+
+        if (Paused)
+        {
+            return;
+        }
 
         if (spriteMovingLeft)
         {
@@ -122,6 +141,7 @@ public class characterControls : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) & (chel.transform.position.x >= -2f) & !JRollExpended & A_up)
         {
+            MPSpriteRenderer.flipX = true;
             spriteMovingLeft = true;
             spriteMovingRight = false;
             A_up = false;
@@ -143,6 +163,7 @@ public class characterControls : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D) & (chel.transform.position.x <= 2f) & !JRollExpended & D_up)
         {
+            MPSpriteRenderer.flipX = false;
             spriteMovingRight = true;
             spriteMovingLeft = false;
 
@@ -221,6 +242,15 @@ public class characterControls : MonoBehaviour
             JRollExpended = true;
         }
 
+        if (grounded)
+        {
+            PlayAnimation(MPAnimator);
+            MoveParticles.transform.position = new Vector3(end.x, Hitbox_Grounded_Y, chel.transform.position.z);
+            MoveParticles.transform.localScale = new Vector3(MoveParticles.transform.localScale.x, MoveParticles.transform.localScale.y, MoveParticles.transform.localScale.y);
+        }
+        
+        
+
         Vector3 warpPos = new Vector3((start.x + end.x) / 2f, chel.transform.position.y, chel.transform.position.z);
         chel.transform.position = warpPos;          // (Телепорт)
         
@@ -230,6 +260,7 @@ public class characterControls : MonoBehaviour
             float t = Time.deltaTime / duration;
             // chel.transform.position += Vector3.Lerp(start, end, Mathf.SmoothStep(0f, 1f, t));
             chel.transform.position += new Vector3((end.x - warpPos.x) * t, 0f, 0f);
+            // MoveParticles.transform.position = new Vector3(chel.transform.position.x + 0.6f * MoveDirection, Hitbox_Grounded_Y, chel.transform.position.z);
             te += Time.deltaTime;
             yield return null;
         }
@@ -267,6 +298,9 @@ public class characterControls : MonoBehaviour
         }
         chel.transform.position = new Vector3(chel.transform.position.x, -3f, chel.transform.position.z);
         PlayerHitbox.transform.position = new Vector3(PlayerHitbox.transform.position.x, Hitbox_Grounded_Y, PlayerHitbox.transform.position.z);
+
+        LandParticles.transform.position = new Vector3(chel.transform.position.x, chel.transform.position.y - 1.2f, chel.transform.position.z);             // Партиклы при приземлении
+        PlayAnimation(LPAnimator);
     }
 
     IEnumerator Jump()
@@ -393,6 +427,22 @@ public class characterControls : MonoBehaviour
             ChargeText.GetComponent<TMP_Text>().text = "0";
             ChargeText.GetComponent<TMP_Text>().color = Color.white;
         }
+
+        StartCoroutine(SetAttackAnim());
+    }
+
+    IEnumerator SetAttackAnim()
+    {
+        Char_Animator.SetBool("Attacking", true);
+        yield return new WaitForSeconds(0.12f);
+        Char_Animator.SetBool("Attacking", false);
+    }
+
+    private void PlayAnimation(Animator animator)
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        animator.Play(stateInfo.shortNameHash, 0, 0.0f);
+        animator.Update(0.0f);
     }
 
     IEnumerator frameCompare()         // Сравнение позиции перса каждый кадр, определяет, стоит он или движется, и куда. Тут же будет обработка для прыжков, джампролла и тд. Нужно для спрайтов

@@ -36,6 +36,20 @@ public class Spawn_notes : MonoBehaviour
     [SerializeField] private Sprite Three_Wide_Sprite;
     [SerializeField] private Sprite Four_Wide_Sprite;
     [SerializeField] private Sprite Five_Wide_Sprite;
+    [SerializeField] private Sprite One_Wide_Shield_Sprite;
+    [SerializeField] private Sprite Two_Wide_Shield_Sprite;
+    [SerializeField] private Sprite Three_Wide_Shield_Sprite;
+    [SerializeField] private Sprite Four_Wide_Shield_Sprite;
+    [SerializeField] private Sprite Five_Wide_Shield_Sprite;
+    [SerializeField] private Sprite Regular_Wall;
+    [SerializeField] private Sprite Shield_Wall;
+
+    private Sprite[] SimpleNoteSprites;
+    private Sprite[] SimpleShieldNoteSprites;
+    private Sprite[] WallSprites;
+
+
+
 
     [System.Serializable]
     public class SceneObject
@@ -274,6 +288,10 @@ public class Spawn_notes : MonoBehaviour
             Folder = Application.persistentDataPath;
         }
 
+        SimpleNoteSprites = new Sprite[] { One_Wide_Sprite, Two_Wide_Sprite, Three_Wide_Sprite, Four_Wide_Sprite, Five_Wide_Sprite};
+        SimpleShieldNoteSprites = new Sprite[] { One_Wide_Shield_Sprite, Two_Wide_Shield_Sprite, Three_Wide_Shield_Sprite, Four_Wide_Shield_Sprite, Five_Wide_Shield_Sprite};
+        WallSprites = new Sprite[] { Shield_Wall, Regular_Wall };
+
         LoadBattleData();
         // Debug.Log(SpriteDict.Count);
         PlayChart();
@@ -315,18 +333,26 @@ public class Spawn_notes : MonoBehaviour
         ParticleSystem.ShapeModule particle_system_shape = particle_system.shape;
 
         GameObject Glow = InstNote.transform.Find("Glow").gameObject;
-        Glow.GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);             // Цвет свечения
-
+        // Glow.GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);             // Цвет свечения
+        if (color[0] == 0)
+        {
+            Glow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.07f);
+        }
+        else
+        {
+            Glow.GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);
+        }
 
         // MeshFilter Mesh_Filter = InstNote.transform.Find("Model").GetComponent<MeshFilter>();
         SpriteRenderer noteSprite = InstNote.transform.Find("Sprite").GetComponent<SpriteRenderer>();
 
+        
 
         BoxCollider Note_collider = InstNote.GetComponentInChildren<BoxCollider>();           // ШИРИНА НОТЫ
         if (width == 1)
         {
             // Mesh_Filter.mesh = One_Wide_Mesh;
-            noteSprite.sprite = One_Wide_Sprite;
+            // noteSprite.sprite = One_Wide_Sprite;
             Note_collider.size = new Vector3(0.8f, Note_collider.size.y, Note_collider.size.z);
             particle_system_shape.radius = 0.6f;
             Glow.transform.localScale = new Vector3(0.6f, 0.36f, 0.6f);
@@ -334,7 +360,7 @@ public class Spawn_notes : MonoBehaviour
         else if (width == 2)
         {
             // Mesh_Filter.mesh = Two_Wide_Mesh;
-            noteSprite.sprite = Two_Wide_Sprite;
+            // noteSprite.sprite = Two_Wide_Sprite;
             Note_collider.size = new Vector3(2.6f, Note_collider.size.y, Note_collider.size.z);
             particle_system_shape.radius = 1.4f;
             Glow.transform.localScale = new Vector3(1.1f, 0.36f, 0.6f);
@@ -342,7 +368,7 @@ public class Spawn_notes : MonoBehaviour
         else if (width == 3)
         {
             // Mesh_Filter.mesh = Three_Wide_Mesh;
-            noteSprite.sprite = Three_Wide_Sprite;
+            // noteSprite.sprite = Three_Wide_Sprite;
             Note_collider.size = new Vector3(4.6f, Note_collider.size.y, Note_collider.size.z);
             particle_system_shape.radius = 2.2f;
             Glow.transform.localScale = new Vector3(1.5f, 0.36f, 0.6f);
@@ -350,7 +376,7 @@ public class Spawn_notes : MonoBehaviour
         else if (width == 4)
         {
             // Mesh_Filter.mesh = Four_Wide_Mesh;
-            noteSprite.sprite = Four_Wide_Sprite;
+            // noteSprite.sprite = Four_Wide_Sprite;
             Note_collider.size = new Vector3(6.6f, Note_collider.size.y, Note_collider.size.z);
             particle_system_shape.radius = 3f;
             Glow.transform.localScale = new Vector3(1.9f, 0.36f, 0.6f);
@@ -358,11 +384,21 @@ public class Spawn_notes : MonoBehaviour
         else if (width == 5)
         {
             // Mesh_Filter.mesh = Five_Wide_Mesh;
-            noteSprite.sprite = Five_Wide_Sprite;
+            // noteSprite.sprite = Five_Wide_Sprite;
             Note_collider.size = new Vector3(8.6f, Note_collider.size.y, Note_collider.size.z);
             particle_system_shape.radius = 4.4f;
-            Glow.transform.localScale = new Vector3(2.3f, 0.36f, 0.6f);
+            Glow.transform.localScale = new Vector3(2.5f, 0.36f, 0.6f);
         }
+
+        if (Punchable)
+        {
+            noteSprite.sprite = SimpleNoteSprites[width - 1];
+        }
+        else
+        {
+            noteSprite.sprite = SimpleShieldNoteSprites[width - 1];
+        }
+
 
         noteSprite.color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f);
 
@@ -389,7 +425,17 @@ public class Spawn_notes : MonoBehaviour
 
         InstWallNoteRenderer.color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f);
         InstGroundNoteRenderer.color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f);
-        InstWallNote.transform.Find("Glow").GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);             // Цвет свечения
+
+        GameObject Glow = InstWallNote.transform.Find("Glow").gameObject;
+        // Glow.GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);             // Цвет свечения
+        if (color[0] == 0)
+        {
+            Glow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.07f);
+        }
+        else
+        {
+            Glow.GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);
+        }
 
         ParticleSystem particle_system = InstWallNote.GetComponentInChildren<ParticleSystem>();           // Цвет частиц
         ParticleSystem.MainModule particle_system_main = particle_system.main;          
@@ -402,6 +448,8 @@ public class Spawn_notes : MonoBehaviour
         InstWallNote.GetComponent<NoteValues>().Absorbable = Absorbable;
         InstWallNote.GetComponent<NoteValues>().Punchable = Punchable;
         InstWallNote.GetComponent<NoteValues>().NoteColor = (int)(color[0] * 1000000 + color[1] * 1000 + color[2]);
+
+        InstWallNote.transform.Find("Wall").GetComponent<SpriteRenderer>().sprite = WallSprites[Punchable ? 1 : 0];
     }
 
     IEnumerator Spawn_cracker_note(int speed, List<float> color, List<int> rand_lanes, float delay, bool Absorbable, bool Punchable)
@@ -423,7 +471,17 @@ public class Spawn_notes : MonoBehaviour
         InstGroundNoteRenderer.color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f);    // Цвет наземной ноты
         InstFuseRenderer.color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f);                                                                          // Цвет фитиля
         InstFireRenderer.color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f);                                                                          // Цвет запала
-        InstCrackerNote.transform.Find("Glow").GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);              // Цвет свечения
+
+        GameObject Glow = InstCrackerNote.transform.Find("Glow").gameObject;
+        // Glow.GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);             // Цвет свечения
+        if (color[0] == 0)
+        {
+            Glow.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.07f);
+        }
+        else
+        {
+            Glow.GetComponent<SpriteRenderer>().color = new Color(color[0] / 255f, color[1] / 255f, color[2] / 255f, 0.05f);
+        }
 
         ParticleSystem particle_system = InstCrackerNote.GetComponentInChildren<ParticleSystem>();           // Цвет частиц
         ParticleSystem.MainModule particle_system_main = particle_system.main;          

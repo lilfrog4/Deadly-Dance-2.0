@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4b1a3ad8d70d5354d8eb660e7be5b3a5
+guid: 1184775756b619e47a5f3ec276926e95
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7218479597593617487
-    second: Circus_0
+      213: 1767240818070357936
+    second: 3Wide-outline_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Circus_0
+      name: 3Wide-outline_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 50
-        width: 478
-        height: 446
+        x: 17
+        y: 102
+        width: 872
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f44e8f8e2f03d2460800000000000000
-      internalID: 7218479597593617487
+      spriteID: 0b787a92920868810800000000000000
+      internalID: 1767240818070357936
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Circus_0: 7218479597593617487
+      3Wide-outline_0: 1767240818070357936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

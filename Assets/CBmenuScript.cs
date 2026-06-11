@@ -35,8 +35,6 @@ public class CBmenuScript : MonoBehaviour
     public void BackToMM()
     {
         SceneManager.LoadScene("MainMenu");
-        
-        
     }
 
     public void GetBattles()

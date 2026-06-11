@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class SimpleNoteStats : MonoBehaviour
 {
+
         public int editorID;
         public string type;
         public List<float> color;
@@ -12,4 +13,7 @@ public class SimpleNoteStats : MonoBehaviour
         public float delay;
         public int speed;
         public int width;
+
+        public bool Absorbable;
+        public bool Punchable;
 }
