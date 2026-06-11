@@ -25,11 +25,18 @@ public class PunchHitboxScript : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("Note"))
             {
-                GameObject NoteShards = Instantiate(Shards, new Vector3(hit.transform.position.x, hit.transform.position.y + 1f, hit.transform.position.z), transform.rotation);
-                NoteShards.transform.root.GetComponent<SpriteRenderer>().color = hit.transform.root.GetComponentInChildren<SpriteRenderer>().color;
-                Destroy(hit.transform.root.gameObject);
-                gameObject.SetActive(false);
-                Debug.Log("hit!");
+                if (hit.transform.parent.GetComponent<NoteValues>().Punchable == true)
+                {
+                    GameObject NoteShards = Instantiate(Shards, new Vector3(hit.transform.position.x, hit.transform.position.y + 1f, hit.transform.position.z), transform.rotation);
+                    NoteShards.transform.root.GetComponent<SpriteRenderer>().color = hit.transform.root.GetComponentInChildren<SpriteRenderer>().color;
+                    Destroy(hit.transform.root.gameObject);
+                    gameObject.SetActive(false);
+                    Debug.Log("hit!");
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
     }

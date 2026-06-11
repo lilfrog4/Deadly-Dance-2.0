@@ -62,23 +62,11 @@ MonoBehaviour:
       - rid: 1307567083024023805
       - rid: 1307567083024023806
       - rid: 1307567083024023807
-      - rid: 8364699831851286717
-      - rid: 8364699831851286718
-      - rid: 8364699831851286719
+      - rid: 3789417608390377546
+      - rid: 3789417608390377547
+      - rid: 3789417608390377548
     m_RuntimeSettings:
-      m_List:
-      - rid: 8764896933854052639
-      - rid: 8764896933854052643
-      - rid: 8764896933854052647
-      - rid: 8764896933854052648
-      - rid: 8764896933854052650
-      - rid: 8764896933854052651
-      - rid: 8764896933854052652
-      - rid: 8764896933854052654
-      - rid: 8764896933854052655
-      - rid: 8764896933854052662
-      - rid: 1307567083024023806
-      - rid: 1307567083024023807
+      m_List: []
   m_AssetVersion: 9
   m_ObsoleteDefaultVolumeProfile: {fileID: 0}
   m_RenderingLayerNames:
@@ -138,7 +126,7 @@ MonoBehaviour:
       data:
         m_Version: 1
         m_UseBicubicLightmapSampling: 0
-    - rid: 8364699831851286717
+    - rid: 3789417608390377546
       type: {class: RayTracingRenderPipelineResources, ns: UnityEngine.Rendering.UnifiedRayTracing, asm: Unity.UnifiedRayTracing.Runtime}
       data:
         m_Version: 1
@@ -151,12 +139,12 @@ MonoBehaviour:
         m_BuildHlbvh: {fileID: 7200000, guid: 2d70cd6be91bd7843a39a54b51c15b13, type: 3}
         m_RestructureBvh: {fileID: 7200000, guid: 56641cb88dcb31a4398a4997ef7a7a8c, type: 3}
         m_Scatter: {fileID: 7200000, guid: a2eaeefdac4637a44b734e85b7be9186, type: 3}
-    - rid: 8364699831851286718
+    - rid: 3789417608390377547
       type: {class: OnTilePostProcessResource, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
         m_Version: 0
         m_UberPostShader: {fileID: 4800000, guid: fe4f13c1004a07d4ea1e30bfd0326d9e, type: 3}
-    - rid: 8364699831851286719
+    - rid: 3789417608390377548
       type: {class: URPReflectionProbeSettings, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
         version: 1

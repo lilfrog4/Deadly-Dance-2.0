@@ -6,12 +6,14 @@ public class PauseScreen : MonoBehaviour
     public GameObject pauseScreen;
     public MusicManager manager;
     private bool isPaused = false;
+    public GameObject Player;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ShowPauseScreen();
+            Player.GetComponent<characterControls>().Paused = !Player.GetComponent<characterControls>().Paused;
         }
     }
 
