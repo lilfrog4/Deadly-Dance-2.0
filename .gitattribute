@@ -1,0 +1,10 @@
+# Через echo (каждую строку отдельно)
+echo "*.psd filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.png filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.jpg filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.fbx filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.unity filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.prefab filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.wav filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.mp3 filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
+echo "*.dll filter=lfs diff=lfs merge=lfs -text" >> .gitattributes
