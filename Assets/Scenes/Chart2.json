@@ -1,0 +1,1535 @@
+{
+  "SimpleNotes": {
+    "simple_note": [
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 0.0,
+        "speed": 18,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 0.4,
+        "speed": 18,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 0.8,
+        "speed": 18,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 1.2,
+        "speed": 18,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 1.6,
+        "speed": 18,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 3.0,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 3.3,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 3.6,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 3.9,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 4.2,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 6.0,
+        "speed": 15,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 6.8,
+        "speed": 15,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 7.6,
+        "speed": 15,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 8.4,
+        "speed": 15,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 10.0,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 10.2,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 10.4,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 10.6,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 10.8,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 13.0,
+        "speed": 19,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 13.4,
+        "speed": 19,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 13.8,
+        "speed": 19,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 14.2,
+        "speed": 19,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 16.5,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 16.8,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 17.1,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 17.4,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 19.5,
+        "speed": 16,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 20.3,
+        "speed": 16,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 21.1,
+        "speed": 16,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 23.0,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 23.2,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 23.4,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 23.6,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 26.0,
+        "speed": 20,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 26.4,
+        "speed": 20,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 26.8,
+        "speed": 20,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 27.2,
+        "speed": 20,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 29.5,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 29.8,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 30.1,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 30.4,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 32.5,
+        "speed": 17,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 33.3,
+        "speed": 17,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 34.1,
+        "speed": 17,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 36.0,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 36.2,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 36.4,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 36.6,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 39.0,
+        "speed": 21,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 39.4,
+        "speed": 21,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 39.8,
+        "speed": 21,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 40.2,
+        "speed": 21,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 42.5,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 42.8,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 43.1,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 43.4,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 45.5,
+        "speed": 18,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 46.3,
+        "speed": 18,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 47.1,
+        "speed": 18,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 49.0,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 49.2,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 49.4,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 49.6,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 52.0,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 52.4,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 52.8,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 53.2,
+        "speed": 22,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 55.5,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 55.8,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 56.1,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 56.4,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 58.5,
+        "speed": 19,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 59.3,
+        "speed": 19,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 60.1,
+        "speed": 19,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 62.0,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 62.2,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 62.4,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 62.6,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 65.0,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 65.4,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 65.8,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 66.2,
+        "speed": 23,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 68.5,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 68.8,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 69.1,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 69.4,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 71.5,
+        "speed": 20,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 72.3,
+        "speed": 20,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 73.1,
+        "speed": 20,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 75.0,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 75.2,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 75.4,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 75.6,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 78.0,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 78.4,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 78.8,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 79.2,
+        "speed": 24,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 81.5,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 81.8,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 82.1,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 82.4,
+        "speed": 28,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 84.5,
+        "speed": 21,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 85.3,
+        "speed": 21,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 86.1,
+        "speed": 21,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 88.0,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 88.2,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 88.4,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 88.6,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 91.0,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 91.4,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 91.8,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 92.2,
+        "speed": 25,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 94.5,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 94.8,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 95.1,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 95.4,
+        "speed": 29,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 97.5,
+        "speed": 22,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 98.3,
+        "speed": 22,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 99.1,
+        "speed": 22,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 101.0,
+        "speed": 32,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 101.2,
+        "speed": 32,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 101.4,
+        "speed": 32,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 101.6,
+        "speed": 32,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 104.0,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 104.4,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 104.8,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 105.2,
+        "speed": 26,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 107.5,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 107.8,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 108.1,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 108.4,
+        "speed": 30,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 110.5,
+        "speed": 23,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 111.3,
+        "speed": 23,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 112.1,
+        "speed": 23,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 114.0,
+        "speed": 33,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 114.2,
+        "speed": 33,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 114.4,
+        "speed": 33,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 114.6,
+        "speed": 33,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 117.0,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 117.4,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 117.8,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 180.0, 130.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 118.2,
+        "speed": 27,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 120.5,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 120.8,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 121.1,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 255.0, 200.0, 100.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 121.4,
+        "speed": 31,
+        "width": 1
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 123.5,
+        "speed": 24,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 124.3,
+        "speed": 24,
+        "width": 2
+      },
+      {
+        "color": [ 100.0, 255.0, 200.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 125.1,
+        "speed": 24,
+        "width": 2
+      },
+      {
+        "color": [ 255.0, 100.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 126.5,
+        "speed": 34,
+        "width": 1
+      }
+    ]
+  },
+  "WallNotes": {
+    "wall_note": [
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 2.0,
+        "speed": 20
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 2.4,
+        "speed": 20
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 5.0,
+        "speed": 24
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 5.4,
+        "speed": 24
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 9.0,
+        "speed": 16
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 9.5,
+        "speed": 16
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 12.0,
+        "speed": 21
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 12.4,
+        "speed": 21
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 15.5,
+        "speed": 25
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 15.9,
+        "speed": 25
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 18.5,
+        "speed": 17
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 19.0,
+        "speed": 17
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 22.0,
+        "speed": 22
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 22.4,
+        "speed": 22
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 25.5,
+        "speed": 26
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 25.9,
+        "speed": 26
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 28.5,
+        "speed": 18
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 29.0,
+        "speed": 18
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 31.5,
+        "speed": 23
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 31.9,
+        "speed": 23
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 35.0,
+        "speed": 27
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 35.4,
+        "speed": 27
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 38.0,
+        "speed": 19
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 38.5,
+        "speed": 19
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 41.5,
+        "speed": 24
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 41.9,
+        "speed": 24
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 44.5,
+        "speed": 28
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 44.9,
+        "speed": 28
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 48.0,
+        "speed": 20
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 48.5,
+        "speed": 20
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 51.0,
+        "speed": 25
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 51.4,
+        "speed": 25
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 54.5,
+        "speed": 29
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 54.9,
+        "speed": 29
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 57.5,
+        "speed": 21
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 58.0,
+        "speed": 21
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 61.0,
+        "speed": 26
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 61.4,
+        "speed": 26
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 64.5,
+        "speed": 30
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 64.9,
+        "speed": 30
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 67.5,
+        "speed": 22
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 68.0,
+        "speed": 22
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 70.5,
+        "speed": 27
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 70.9,
+        "speed": 27
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 74.0,
+        "speed": 31
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 74.4,
+        "speed": 31
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 77.0,
+        "speed": 23
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 77.5,
+        "speed": 23
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 80.5,
+        "speed": 28
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 80.9,
+        "speed": 28
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 83.5,
+        "speed": 32
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 83.9,
+        "speed": 32
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 87.0,
+        "speed": 24
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 87.5,
+        "speed": 24
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 90.0,
+        "speed": 29
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 90.4,
+        "speed": 29
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 93.5,
+        "speed": 33
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 93.9,
+        "speed": 33
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 96.5,
+        "speed": 25
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 97.0,
+        "speed": 25
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 100.0,
+        "speed": 30
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 100.4,
+        "speed": 30
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 103.0,
+        "speed": 34
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 103.4,
+        "speed": 34
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 106.5,
+        "speed": 26
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 107.0,
+        "speed": 26
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 109.5,
+        "speed": 31
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 109.9,
+        "speed": 31
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 113.0,
+        "speed": 35
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 113.4,
+        "speed": 35
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 116.0,
+        "speed": 27
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 116.5,
+        "speed": 27
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 0 ],
+        "delay": 119.5,
+        "speed": 32
+      },
+      {
+        "color": [ 70.0, 70.0, 255.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 119.9,
+        "speed": 32
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 3 ],
+        "delay": 122.5,
+        "speed": 36
+      },
+      {
+        "color": [ 255.0, 150.0, 50.0 ],
+        "rand_lanes": [ 1 ],
+        "delay": 122.9,
+        "speed": 36
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 4 ],
+        "delay": 126.0,
+        "speed": 28
+      },
+      {
+        "color": [ 150.0, 255.0, 150.0 ],
+        "rand_lanes": [ 2 ],
+        "delay": 126.5,
+        "speed": 28
+      }
+    ]
+  }
+}

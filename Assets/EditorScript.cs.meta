@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 03ece4279927e38409d43def4e3fbed9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MainCanvas: {instanceID: 0}
+  - Parameter_Panel: {instanceID: 0}
+  - SimpleNoteButton: {instanceID: 0}
+  - WallNoteButton: {instanceID: 0}
+  - SelectButton: {instanceID: 0}
+  - Selected_Note: {instanceID: 0}
+  - Selected_Tool_Button: {instanceID: 0}
+  - Cursor: {instanceID: 0}
+  - Simple_Note: {instanceID: 0}
+  - Wall_Note: {instanceID: 0}
+  - Chart_Container: {instanceID: 0}
+  - Note_Container: {instanceID: 0}
+  - soundii: {fileID: 6434972995778734098, guid: fb8876bc912e7184899778d3524b7758, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

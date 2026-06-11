@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 68c749919f15be64ba2854672c42a805
+  - enabled: 1
+    path: Assets/Scenes/BattleMenu.unity
+    guid: d8007fbd3f1d37a4699af7efcce8ff46
+  - enabled: 1
+    path: Assets/Scenes/CB_Scene.unity
+    guid: 17938ffbebb4ca140be067c35e6ce8d6
+  - enabled: 1
+    path: Assets/Scenes/Chart_Editor.unity
+    guid: 14d3a7ef78cb6034580aecec7ad20b34
+  - enabled: 1
+    path: Assets/Scenes/CustomBattleMenu.unity
+    guid: f13df4780d5d81e48bf8ff772570cc28
+  - enabled: 1
+    path: Assets/Scenes/SecondBattleScene.unity
+    guid: 99d2438359fe6b341b6790c60434b0ab
+  - enabled: 1
+    path: Assets/Scenes/ThirdBattleScene.unity
+    guid: 7ed07d59bbd96524ca090ab5e06e851b
+  - enabled: 1
+    path: Assets/WalkGameplay/Scenes/1WalkScene.unity
+    guid: 292fb7202746c0c40b97ec899182c1c3
+  - enabled: 1
+    path: Assets/WalkGameplay/Scenes/2WalkScene.unity
+    guid: c378f7a8011a2194a8b2673026e6c9e3
+  - enabled: 1
+    path: Assets/WalkGameplay/Scenes/FirstBattleScene.unity
+    guid: fc1c55da03d938a4aa233ad379d9c16b
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_UseUCBPForAssetBundles: 0
