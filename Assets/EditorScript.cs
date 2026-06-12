@@ -97,10 +97,17 @@ public class EditorScript : MonoBehaviour
     public Button SimpleNoteButton;
     public Button WallNoteButton;
     public Button CrackerNoteButton;
+
+    public Button AlphaTriggerButton;
+    public Button SpriteTriggerButton;
+
     public Button SelectButton;
     public Button DefaultColorButton;
     public Button DefaultSpeedButton;
+
     public GameObject Selected_Note;
+    public GameObject Selected_Trigger;
+
     public Button Selected_Tool_Button;
     public Button SelectedColorButton;
     public Button SelectedSpeedButton;
@@ -114,13 +121,19 @@ public class EditorScript : MonoBehaviour
     public Button SimpleNote;
     public Button CrackerNote;
     public Button WallNote;
+
+    public Button AlphaTrigger;
+    public Button SpriteTrigger;
+
     public GameObject Chart_Container;
     public GameObject Note_Container;       // Контейнер для нот - когда скроллишь, он смещается на 20f по своим локальным координатам
     private Vector3 NCInitialPos;
     // public GameObject MusicGuideline;
     private bool PlaybackActive = false;        // Активен плейбек, или нет. Когда активен - должна идти музыка, когда нет - останавливаться.
-    private List<float> Lane_X_positions = new List<float>() {0.80f, 0.89f, 0.98f, 1.07f, 1.17f};       // В MousePosition X-координата всегда идет от 0 до 2, независимо от размера экрана.
+    private List<float> Lane_X_positions = new List<float>() {0.80f, 0.89f, 0.98f, 1.07f, 1.17f, 1.27f, 1.34f, 1.41f, 1.48f};       // В MousePosition X-координата всегда идет от 0 до 2, независимо от размера экрана.
+    // private List<float> Trigger_Lane_X_positions = new List<float>() {};
     private List<float> Lane_X;
+
     
     private int Closest_Lane;
     private float Closest_Y;        // Ближайшая Y-координата точки на экране, кратная 20.
@@ -293,6 +306,66 @@ public class EditorScript : MonoBehaviour
     public Dictionary<int, SNchunk> SNdict = new Dictionary<int, SNchunk>();
     public Dictionary<int, WNchunk> WNdict = new Dictionary<int, WNchunk>();
     public Dictionary<int, CNchunk> CNdict = new Dictionary<int, CNchunk>();
+
+
+    [System.Serializable]
+    public class Alpha_Trigger
+    {
+        public int editorLane;
+        public int editorID;
+        public int usedGroup;
+        public float delay;
+        public float duration;
+        public float opacity;
+    }
+
+    [System.Serializable]
+    public class AlphaTriggerList
+    {
+        public Alpha_Trigger[] alpha_trigger = new Alpha_Trigger[0];
+    }
+    public AlphaTriggerList AllAlphaTriggers = new AlphaTriggerList();
+
+    public class ATchunk
+    {
+        public Alpha_Trigger[] ATbatch = new Alpha_Trigger[0];
+    }
+
+
+    [System.Serializable]
+    public class Sprite_Trigger
+    {
+        public int editorLane;
+        public int editorID;
+        public int usedGroup;
+        public float delay;
+        public string spritename;
+    }
+
+    [System.Serializable]
+    public class SpriteTriggerList
+    {
+        public Sprite_Trigger[] sprite_trigger = new Sprite_Trigger[0];
+    }
+     public SpriteTriggerList AllSpriteTriggers = new SpriteTriggerList();
+
+    public class STchunk
+    {
+        public Sprite_Trigger[] STbatch = new Sprite_Trigger[0];
+    }
+
+
+    [System.Serializable]
+    public class AllTriggerList
+    {
+        public AlphaTriggerList AlphaTriggers = new AlphaTriggerList();
+        public SpriteTriggerList SpriteTriggers = new SpriteTriggerList();
+    }
+    public AllTriggerList AllTriggers = new AllTriggerList();
+
+    public Dictionary<int, ATchunk> ATdict = new Dictionary<int, ATchunk>();
+    public Dictionary<int, STchunk> STdict = new Dictionary<int, STchunk>();
+    
 
     private int[] DrawnChunks = new int[3];
 
@@ -680,11 +753,67 @@ public class EditorScript : MonoBehaviour
             // Debug.Log(Local_Y);
     }
 
-    // public void
+    public void AddTrigger(Button Trigger)
+    {
+        if (Closest_Lane < 5)
+        {
+            return;
+        }
+
+        float preCoords = (float)Math.Round(((Closest_Y / Screen.height * NotesPerScreen + YParallax / 20f) * 0.05f - 0.7f) * 400f) + Closest_Lane;
+        float delay = (float)Math.Round((Closest_Y / Screen.height * NotesPerScreen + YParallax / 20f) * 0.05f - 0.7f, 2);
+        int chunkNum = (int)Math.Ceiling(delay / 0.7f);
+
+        OCdict.TryAdd(chunkNum, new List<int>());
+
+        if (!OCdict[chunkNum].Contains((int)preCoords))
+        {
+            Button Added_Trigger = Instantiate(Trigger, new Vector3(Lane_X[(int)Closest_Lane] + 2f + Closest_Lane, Local_Y, 1f), Trigger.transform.rotation);
+
+            TriggerValues triggerValues = Added_Trigger.GetComponent<TriggerValues>();
+
+            triggerValues.delay = delay;
+            triggerValues.editorLane = Closest_Lane;
+            triggerValues.usedGroup = 999999;
+            triggerValues.duration = 0f;
+            triggerValues.spriteName = "";
+
+            Added_Trigger.transform.SetParent(Note_Container.transform, false);
+
+            Added_Trigger.GetComponent<RectTransform>().sizeDelta = new Vector2(140, 45);
+
+            OCdict[chunkNum].Add((int)preCoords);
+
+            if (FreeNoteIDs.Length != 0)
+            {
+                Added_Trigger.GetComponent<TriggerValues>().editorID = FreeNoteIDs[FreeNoteIDs.Length - 1];
+                Array.Resize(ref FreeNoteIDs, FreeNoteIDs.Length - 1);
+            }
+            else
+            {
+                Added_Trigger.GetComponent<TriggerValues>().editorID = LastNoteID + 1;
+                LastNoteID += 1;
+            }
+
+            if (Selected_Tool_Button == AlphaTriggerButton)
+            {
+                Added_Trigger.GetComponent<TriggerValues>().triggerType = "alpha_trigger";
+            }
+            else if (Selected_Tool_Button == SpriteTriggerButton)
+            {
+                Added_Trigger.GetComponent<TriggerValues>().triggerType = "sprite_trigger";
+            }
+        }
+    }
 
 
     public void AddNote(Button Note)            // Ставит ноту
     {
+        if (Closest_Lane > 4)
+        {
+            return;
+        }
+
         float preCoords = (float)Math.Round(((Closest_Y / Screen.height * NotesPerScreen + YParallax / 20f) * 0.05f - 0.7f) * 400f) + Closest_Lane;
         float delay = (float)Math.Round((Closest_Y / Screen.height * NotesPerScreen + YParallax / 20f) * 0.05f - 0.7f, 2);
         int chunkNum = (int)Math.Ceiling(delay / 0.7f);
@@ -700,8 +829,8 @@ public class EditorScript : MonoBehaviour
             // Debug.Log(Closest_Y / Screen.height * NotesPerScreen);                   // дохуя важные вычисления
             // Debug.Log(((preCoords - Closest_Lane - YParallax + 300f) / 20f) -1f);
 
-            Debug.Log(Closest_Y);
-            Debug.Log((((preCoords - Closest_Lane - YParallax + 300f) / 20f) -1f) * Screen.height / NotesPerScreen);
+            // Debug.Log(Closest_Y);
+            // Debug.Log((((preCoords - Closest_Lane - YParallax + 300f) / 20f) -1f) * Screen.height / NotesPerScreen);
             // Occupied_Coords.Add(preCoords);
 
             // Button Added_Note = Instantiate(Note, new Vector3(Lane_X[(int)Closest_Lane], Closest_Y + YParallax, 1f), Note.transform.rotation);
@@ -815,7 +944,7 @@ public class EditorScript : MonoBehaviour
 
             if (Added_Note.GetComponent<Image>().color.r != 0)
             {
-                Added_Note.transform.GetChild(0).gameObject.SetActive(false);
+                Added_Note.transform.GetChild(0).gameObject.SetActive(false);                       // Обводка
             }
             
             Added_Note.GetComponent<SimpleNoteStats>().occupied_space = (int)Mathf.Round(delay * 400f) + Closest_Lane;
@@ -1213,134 +1342,6 @@ public class EditorScript : MonoBehaviour
         DrawnChunks = ChunksToCheck;
     }
 
-
-    IEnumerator PlaceImportedNotes()
-    {
-        Importing = true;
-        int count = 0;
-        ImportScreen.SetActive(true);
-        foreach (Simple_Note SN in AllSimpleNotes.simple_note)
-        {
-            count += 1;
-            float NoteOccupiedSpace = SN.delay * 400f + SN.rand_lanes[0];
-            Closest_Lane = SN.rand_lanes[0];
-            Closest_Y = (int)NoteOccupiedSpace - Closest_Lane - YParallax;
-            // Closest_Y = (int)NoteOccupiedSpace - Closest_Lane;
-            Closest_Y = (Screen.height * ((Closest_Y / 400f) + 0.7f - (YParallax / 400f) * 0.05f)) / (0.05f * NotesPerScreen);
-            // Debug.Log(Closest_Y);
-            Local_Y = Note_Container.transform.InverseTransformPoint(0f, Closest_Y, 0f).y;
-            Occupied_Coords.Add(NoteOccupiedSpace);
-
-            Button Added_Note = Instantiate(SimpleNote, new Vector3(Lane_X[(int)Closest_Lane] + 2f + 1f*Closest_Lane, Local_Y, 1f), SimpleNote.transform.rotation);
-
-            Added_Note.GetComponent<SimpleNoteStats>().occupied_space = (int)NoteOccupiedSpace;
-            Added_Note.GetComponent<Image>().color = new Color(SN.color[0] / 255f, SN.color[1] / 255f, SN.color[2] / 255f);
-            Added_Note.GetComponent<SimpleNoteStats>().color = SN.color;
-            Added_Note.GetComponent<SimpleNoteStats>().speed = SN.speed;
-            Added_Note.GetComponent<SimpleNoteStats>().type = "simple_note";
-            Added_Note.GetComponent<SimpleNoteStats>().rand_lanes = SN.rand_lanes;
-            Added_Note.GetComponent<SimpleNoteStats>().delay = SN.delay;
-            Added_Note.GetComponent<SimpleNoteStats>().editorID = SN.editorID;
-
-            Added_Note.transform.position = new Vector3(Added_Note.transform.position.x, Added_Note.transform.position.y, 0f);
-
-            Added_Note.transform.SetParent(Note_Container.transform, false);
-
-            Added_Note.onClick.AddListener(delegate { SetSelectedNote(Added_Note); });
-            Selected_Note = Added_Note.gameObject;
-            SetNoteWidth(SN.width);
-
-            SetNoteAnchors(Added_Note);
-            
-            if (count >= 10)
-            {
-                yield return null;
-                count = 0;
-            }
-        }
-
-        foreach (Wall_Note WN in AllWallNotes.wall_note)
-        {
-            count += 1;
-            float NoteOccupiedSpace = WN.delay * 400f + WN.rand_lanes[0];
-            Closest_Lane = WN.rand_lanes[0];
-            Closest_Y = (int)NoteOccupiedSpace - Closest_Lane - YParallax;
-            Closest_Y = (Screen.height * ((Closest_Y / 400f) + 0.7f - (YParallax / 400f) * 0.05f)) / (0.05f * NotesPerScreen);
-            Local_Y = Note_Container.transform.InverseTransformPoint(0f, Closest_Y, 0f).y;
-            Occupied_Coords.Add(NoteOccupiedSpace);
-
-            Button Added_Note = Instantiate(WallNote, new Vector3(Lane_X[(int)Closest_Lane] + 2f + 1f*Closest_Lane, Local_Y, 1f), WallNote.transform.rotation);
-
-            Added_Note.GetComponent<SimpleNoteStats>().occupied_space = (int)NoteOccupiedSpace;
-            Added_Note.GetComponent<Image>().color = new Color(WN.color[0] / 255f, WN.color[1] / 255f, WN.color[2] / 255f);
-            Added_Note.GetComponent<SimpleNoteStats>().color = WN.color;
-            Added_Note.GetComponent<SimpleNoteStats>().speed = WN.speed;
-            Added_Note.GetComponent<SimpleNoteStats>().type = "wall_note";
-            Added_Note.GetComponent<SimpleNoteStats>().rand_lanes = WN.rand_lanes;
-            Added_Note.GetComponent<SimpleNoteStats>().delay = WN.delay;
-            Added_Note.GetComponent<SimpleNoteStats>().editorID = WN.editorID;
-
-            Added_Note.transform.position = new Vector3(Added_Note.transform.position.x, Added_Note.transform.position.y, 0f);
-
-            Added_Note.transform.SetParent(Note_Container.transform, false);
-
-            Added_Note.onClick.AddListener(delegate { SetSelectedNote(Added_Note); });
-            Selected_Note = Added_Note.gameObject;
-            SetNoteWidth(1);
-
-            SetNoteAnchors(Added_Note);
-
-            if (count >= 10)
-            {
-                yield return null;
-                count = 0;
-            }
-            
-        }
-
-        foreach (Cracker_Note CN in AllCrackerNotes.cracker_note)
-        {
-            count += 1;
-            float NoteOccupiedSpace = CN.delay * 400f + CN.rand_lanes[0];
-            Closest_Lane = CN.rand_lanes[0];
-            Closest_Y = (int)NoteOccupiedSpace - Closest_Lane - YParallax;
-            // Debug.Log(Closest_Y);
-            Closest_Y = (Screen.height * ((Closest_Y / 400f) + 0.7f - (YParallax / 400f) * 0.05f)) / (0.05f * NotesPerScreen);
-            
-            Local_Y = Note_Container.transform.InverseTransformPoint(0f, Closest_Y, 0f).y;
-            Occupied_Coords.Add(NoteOccupiedSpace);
-
-            Button Added_Note = Instantiate(CrackerNote, new Vector3(Lane_X[(int)Closest_Lane] + 2f + 1f*Closest_Lane, Local_Y, 1f), CrackerNote.transform.rotation);
-
-            Added_Note.GetComponent<SimpleNoteStats>().occupied_space = (int)NoteOccupiedSpace;
-            Added_Note.GetComponent<Image>().color = new Color(CN.color[0] / 255f, CN.color[1] / 255f, CN.color[2] / 255f);
-            Added_Note.GetComponent<SimpleNoteStats>().color = CN.color;
-            Added_Note.GetComponent<SimpleNoteStats>().speed = CN.speed;
-            Added_Note.GetComponent<SimpleNoteStats>().type = "cracker_note";
-            Added_Note.GetComponent<SimpleNoteStats>().rand_lanes = CN.rand_lanes;
-            Added_Note.GetComponent<SimpleNoteStats>().delay = CN.delay;
-            Added_Note.GetComponent<SimpleNoteStats>().editorID = CN.editorID;
-
-            Added_Note.transform.position = new Vector3(Added_Note.transform.position.x, Added_Note.transform.position.y, 0f);
-
-            Added_Note.transform.SetParent(Note_Container.transform, false);
-
-            Added_Note.onClick.AddListener(delegate { SetSelectedNote(Added_Note); });
-            Selected_Note = Added_Note.gameObject;
-            SetNoteWidth(1);
-
-            SetNoteAnchors(Added_Note);
-
-            if (count >= 10)
-            {
-                yield return null;
-                count = 0;
-            }
-            
-        }
-        Importing = false;
-        ImportScreen.SetActive(false);
-    }
 
     IEnumerator MusicGuidelineStart()           // Запускает плейбек
     {
@@ -1830,7 +1831,7 @@ public class EditorScript : MonoBehaviour
         ObjectPageCount = (int)Math.Ceiling(((float)SceneObjects.Count) / 5f);
         Debug.Log(ObjectPageCount);
         Vector2 NCRectTransform = Note_Container.GetComponent<RectTransform>().anchorMin;
-        Lane_X = new List<float>() {NCRectTransform.x - 180f, NCRectTransform.x - 92f, NCRectTransform.x - 4f, NCRectTransform.x + 84f, NCRectTransform.x + 172f};
+        Lane_X = new List<float>() {NCRectTransform.x - 180f, NCRectTransform.x - 92f, NCRectTransform.x - 4f, NCRectTransform.x + 84f, NCRectTransform.x + 172f, NCRectTransform.x + 260f, NCRectTransform.x + 325f, NCRectTransform.x + 390f, NCRectTransform.x + 455f};
 
         CurrentChunk = 0;
         DrawChunks(true);
@@ -2315,16 +2316,19 @@ public class EditorScript : MonoBehaviour
         // Debug.Log(Note_Container.transform.InverseTransformPoint(0f, Note_Container.transform.position.y - YParallax, 0f).y);
 
         Vector2 NCRectTransform = Note_Container.GetComponent<RectTransform>().anchorMin;
-        Lane_X = new List<float>() {NCRectTransform.x - 180f, NCRectTransform.x - 92f, NCRectTransform.x - 4f, NCRectTransform.x + 84f, NCRectTransform.x + 172f};
+        Lane_X = new List<float>() {NCRectTransform.x - 180f, NCRectTransform.x - 92f, NCRectTransform.x - 4f, NCRectTransform.x + 84f, NCRectTransform.x + 172f, NCRectTransform.x + 260f, NCRectTransform.x + 325f, NCRectTransform.x + 390f, NCRectTransform.x + 455f};
+        // Trigger_Lane_X = new List<float>() {NCRectTransform.x + 220f, NCRectTransform.x + 280f, NCRectTransform.x + 340f, NCRectTransform.x + 400f};
         
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ChangeDrawMode();
         }
 
+        Debug.Log(MousePosition);
+
 
         // if (Input.mousePosition.x < 725f & Input.mousePosition.x > 390f)
-        if (MousePosition.x > 0.71f & MousePosition.x < 1.25f & Importing == false)
+        if (MousePosition.x > 0.71f & MousePosition.x < 1.48f & Importing == false)
         {
             GetClosestLane();
             Cursor.transform.position = transform.TransformPoint(new Vector3(Lane_X[(int)Closest_Lane] - 8f, Local_Y + YOffset, 1f));    // Ставит курсор
@@ -2335,6 +2339,11 @@ public class EditorScript : MonoBehaviour
             {
                 return;
             }
+
+            // if (Selected_Tool_Button != null)
+            // {
+            //     AddNote();
+            // }
 
             if (NoteDrawInput(0) & Selected_Tool_Button == SimpleNoteButton)
             {
@@ -2348,11 +2357,20 @@ public class EditorScript : MonoBehaviour
             {
                 AddNote(CrackerNote);
             }
+            else if (NoteDrawInput(0) & Selected_Tool_Button == AlphaTriggerButton)
+            {
+                AddTrigger(AlphaTrigger);
+            }
+            else if (NoteDrawInput(0) & Selected_Tool_Button == SpriteTriggerButton)
+            {
+                AddTrigger(SpriteTrigger);
+            }
         }
         else
         {
             Cursor.transform.position = new Vector3(-10f, -10f, 1f);            // скрывает курсор
         }
+
 
         if (Input.GetKeyUp(KeyCode.Delete) & Selected_Note != null)
         {
