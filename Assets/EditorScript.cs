@@ -413,6 +413,13 @@ public class EditorScript : MonoBehaviour
 
     void SetSelectedNote(Button Note)           // Задает выбранную ноту
     {
+        if (Selected_Trigger != null)
+        {
+            Selected_Trigger.GetComponent<Image>.color = new Color (1f, 1f, 1f, 1f);
+        }
+
+        Selected_Trigger = null;
+
         if (Selected_Note != null)
         {
             Color NoteColor = Selected_Note.GetComponent<Image>().color;
@@ -439,6 +446,26 @@ public class EditorScript : MonoBehaviour
         }
 
         PunchableToggle.GetComponent<Toggle>().isOn = Selected_Note.GetComponent<SimpleNoteStats>().Punchable;
+    }
+
+    void SetSelectedTrigger(Button Trigger)
+    {
+        if (Selected_Note != null)
+        {
+            Color NoteColor = Selected_Note.GetComponent<Image>().color;
+            Selected_Note.GetComponent<Image>().color = new Color32(System.Convert.ToByte(NoteColor.r * 255), System.Convert.ToByte(NoteColor.g * 255), System.Convert.ToByte(NoteColor.b * 255), System.Convert.ToByte(255f));
+            Selected_Note.transform.GetChild(0).GetComponent<Image>().color = new Color32(System.Convert.ToByte(255), System.Convert.ToByte(255), System.Convert.ToByte(255), System.Convert.ToByte(255f));
+        }
+
+        if (Selected_Trigger != null)
+        {
+            Selected_Trigger.GetComponent<Image>.color = new Color (1f, 1f, 1f, 1f);
+        }
+
+        Selected_Note = null;
+        
+        Selected_Trigger = Trigger.gameObject;
+        Selected_Trigger.GetComponent<Image>.color = new Color (1f, 1f, 1f, 0.5f);
     }
 
 
@@ -776,7 +803,6 @@ public class EditorScript : MonoBehaviour
             triggerValues.editorLane = Closest_Lane;
             triggerValues.usedGroup = 999999;
             triggerValues.duration = 0f;
-            triggerValues.spriteName = "";
 
             Added_Trigger.transform.SetParent(Note_Container.transform, false);
 
@@ -786,7 +812,7 @@ public class EditorScript : MonoBehaviour
 
             if (FreeNoteIDs.Length != 0)
             {
-                Added_Trigger.GetComponent<TriggerValues>().editorID = FreeNoteIDs[FreeNoteIDs.Length - 1];
+                triggerValues.editorID = FreeNoteIDs[FreeNoteIDs.Length - 1];
                 Array.Resize(ref FreeNoteIDs, FreeNoteIDs.Length - 1);
             }
             else
@@ -798,10 +824,39 @@ public class EditorScript : MonoBehaviour
             if (Selected_Tool_Button == AlphaTriggerButton)
             {
                 Added_Trigger.GetComponent<TriggerValues>().triggerType = "alpha_trigger";
+                triggerValues.opacity = 1f;
+
+                Alpha_Trigger AT = new Alpha_Trigger();
+                AT.editorLane = Closest_Lane;
+                AT.editorID = triggerValues.editorID;
+                AT.usedGroup = 999999;
+                AT.delay = triggerValues.delay;
+                AT.duration = 0f;
+                AT.opacity = 1f;
+
+                ATchunk newATchunk = new ATchunk();
+                // int chunkNum = (int)Math.Ceiling(delay / 0.7f);
+                ATdict.TryAdd(chunkNum, newATchunk);
+                Array.Resize(ref ATdict[chunkNum].ATbatch, ATdict[chunkNum].ATbatch.Length + 1);
+                ATdict[chunkNum].ATbatch[ATdict[chunkNum].ATbatch.Length - 1] = AT;
             }
             else if (Selected_Tool_Button == SpriteTriggerButton)
             {
                 Added_Trigger.GetComponent<TriggerValues>().triggerType = "sprite_trigger";
+                triggerValues.spriteName = "";
+
+                Sprite_Trigger ST = new Sprite_Trigger();
+                ST.editorLane = Closest_Lane;
+                ST.editorID = triggerValues.editorID;
+                ST.usedGroup = 999999;
+                ST.delay = triggerValues.delay;
+                ST.spritename = "";
+
+                STchunk newSTchunk = new STchunk();
+                // int chunkNum = (int)Math.Ceiling(delay / 0.7f);
+                STdict.TryAdd(chunkNum, newSTchunk);
+                Array.Resize(ref STdict[chunkNum].STbatch, STdict[chunkNum].STbatch.Length + 1);
+                STdict[chunkNum].STbatch[STdict[chunkNum].STbatch.Length - 1] = ST;
             }
         }
     }
@@ -1076,9 +1131,52 @@ public class EditorScript : MonoBehaviour
 
         if (CN.color[0] != 0)
         {
-            Debug.Log(CN.color[0]);
+            // Debug.Log(CN.color[0]);
             Added_Note.transform.GetChild(0).gameObject.SetActive(false);
         }
+    }
+
+    public void DrawAlphaTrigger(Alpha_Trigger AT)
+    {
+        int OC = (int)Math.Round(AT.delay * 400f) + AT.editorLane;
+        float ClosestY = (((OC - (OC % 20f) - YParallax + 300f) / 20f) -1f) * Screen.height / NotesPerScreen;
+        float LocalY = Note_Container.transform.InverseTransformPoint(0f, ClosestY, 0f).y;
+        int ClosestLane = OC % 20;
+        Button Added_Trigger = Instantiate(AlphaTrigger, new Vector3(Lane_X[ClosestLane] + 2f + 1f*ClosestLane, LocalY, 1f), AlphaTrigger.transform.rotation);
+        Added_Trigger.transform.SetParent(Note_Container.transform, false);
+
+        Added_Trigger.GetComponent<TriggerValues>().type = "alpha_trigger";
+        Added_Trigger.GetComponent<TriggerValues>().duration = 0f;
+        Added_Trigger.GetComponent<TriggerValues>().opacity = 1f;
+        Added_Trigger.GetComponent<TriggerValues>().editorLane = AT.editorLane;
+        Added_Trigger.GetComponent<TriggerValues>().delay = (float)Math.Round(AT.delay, 2);
+        // Added_Note.GetComponent<SimpleNoteStats>().occupied_space = OC;
+        Added_Trigger.GetComponent<TriggerValues>().editorID = AT.editorID;
+
+        Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(140, 45);
+
+        Added_Note.onClick.AddListener(delegate { SetSelectedTrigger(Added_Trigger); });
+    }
+
+    public void DrawSpriteTrigger(Sprite_Trigger ST)
+    {
+        int OC = (int)Math.Round(ST.delay * 400f) + ST.editorLane;
+        float ClosestY = (((OC - (OC % 20f) - YParallax + 300f) / 20f) -1f) * Screen.height / NotesPerScreen;
+        float LocalY = Note_Container.transform.InverseTransformPoint(0f, ClosestY, 0f).y;
+        int ClosestLane = OC % 20;
+        Button Added_Trigger = Instantiate(SpriteTrigger, new Vector3(Lane_X[ClosestLane] + 2f + 1f*ClosestLane, LocalY, 1f), SpriteTrigger.transform.rotation);
+        Added_Trigger.transform.SetParent(Note_Container.transform, false);
+
+        Added_Trigger.GetComponent<TriggerValues>().type = "alpha_trigger";
+        Added_Trigger.GetComponent<TriggerValues>().spriteName = "";
+        Added_Trigger.GetComponent<TriggerValues>().editorLane = AT.editorLane;
+        Added_Trigger.GetComponent<TriggerValues>().delay = (float)Math.Round(AT.delay, 2);
+        // Added_Note.GetComponent<SimpleNoteStats>().occupied_space = OC;
+        Added_Trigger.GetComponent<TriggerValues>().editorID = AT.editorID;
+
+        Added_Note.GetComponent<RectTransform>().sizeDelta = new Vector2(140, 45);
+
+        Added_Note.onClick.AddListener(delegate { SetSelectedTrigger(Added_Trigger); });
     }
 
     public void DeleteNote()
@@ -1307,6 +1405,13 @@ public class EditorScript : MonoBehaviour
                         Destroy(child.gameObject);
                     }
                 }
+                else if (child.CompareTag("Trigger"))
+                {
+                    if ((int)Math.Ceiling(child.GetComponent<TriggerValues>().delay / 0.7f) == i)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
             }
         }
         
@@ -1333,6 +1438,24 @@ public class EditorScript : MonoBehaviour
                 foreach (Cracker_Note CN in CNdict[i].CNbatch)
                 {
                     DrawCrackerNote(CN);
+                }
+            }
+
+
+
+            if (ATdict.ContainsKey(i))
+            {
+                foreach (Alpha_Trigger AT in ATdict[i].ATbatch)
+                {
+                    DrawAlphaTrigger(AT);
+                }
+            }
+
+            if (STdict.ContainsKey(i))
+            {
+                foreach (Sprite_Trigger ST in STdict[i].STbatch)
+                {
+                    DrawSpriteTrigger(ST);
                 }
             }
         }

@@ -133,8 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b34f367a94fd604a9859e31e38c626b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  editorLane: 0
+  editorID: 0
   triggerType: 
   usedGroup: 0
   delay: 0
   duration: 0
   spriteName: 
+  opacity: 0
