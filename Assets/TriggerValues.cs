@@ -12,6 +12,8 @@ public class TriggerValues : MonoBehaviour
     public float delay;
     public float duration;
 
+    public int occupied_space;
+
     public string spriteName;       // Для SpriteTrigger
     public float opacity;           // Для AlphaTrigger
 }
