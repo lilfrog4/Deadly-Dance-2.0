@@ -71,10 +71,14 @@ public class EditorScript : MonoBehaviour
     private int ObjectPageNumber;
     public GameObject ObjectPageSwitcher;
     private bool ObjectEditMode;
+
     public GameObject PageToggleButton;
     public GameObject AddObjectButton;
     public GameObject ObjectEditPage;
+    public GameObject AlphaTriggerPage;
+    public GameObject SpriteTriggerPage;
     public GameObject PauseMenu;
+
     private int SpriteWindowPage;
     private int SpritePageCount;
     private int ObjectPageCount;
@@ -413,6 +417,9 @@ public class EditorScript : MonoBehaviour
 
     void SetSelectedNote(Button Note)           // Задает выбранную ноту
     {
+        AlphaTriggerPage.SetActive(false);
+        SpriteTriggerPage.SetActive(false);
+
         if (Selected_Trigger != null)
         {
             Selected_Trigger.GetComponent<Image>().color = new Color (1f, 1f, 1f, 1f);
@@ -469,11 +476,172 @@ public class EditorScript : MonoBehaviour
         Selected_Trigger = Trigger.gameObject;
         Selected_Trigger.GetComponent<Image>().color = new Color (1f, 1f, 1f, 0.5f);
 
+        if (Selected_Trigger.GetComponent<TriggerValues>().triggerType == "alpha_trigger")
+        {
+            OpenAlphaTriggerPage();
+        }
+        else if (Selected_Trigger.GetComponent<TriggerValues>().triggerType == "sprite_trigger")
+        {
+            OpenSpriteTriggerPage();
+        }
+
         DelayValueText = Selected_Trigger.GetComponent<TriggerValues>().delay.ToString();
         Debug.Log(DelayValueText);
         DelayValueObject.GetComponent<TMP_Text>().text = DelayValueText;
     }
 
+
+    private void OpenAlphaTriggerPage()
+    {
+        TriggerValues triggerValues = Selected_Trigger.GetComponent<TriggerValues>();
+        AlphaTriggerPage.SetActive(true);
+        SpriteTriggerPage.SetActive(false);
+
+
+        AlphaTriggerPage.transform.Find("AlphaInput").GetComponent<TMP_InputField>().SetTextWithoutNotify(triggerValues.opacity.ToString());
+        AlphaTriggerPage.transform.Find("DurationInput").GetComponent<TMP_InputField>().SetTextWithoutNotify(triggerValues.duration.ToString());
+
+        if (triggerValues.usedGroup == 999999)
+        {
+            AlphaTriggerPage.transform.Find("GroupInput").GetComponent<TMP_InputField>().SetTextWithoutNotify("0");
+        }
+        else
+        {
+            AlphaTriggerPage.transform.Find("GroupInput").GetComponent<TMP_InputField>().SetTextWithoutNotify(triggerValues.usedGroup.ToString());
+        }
+    }
+
+    public void EditAlphaTrigger()
+    {
+        string groupInput = AlphaTriggerPage.transform.Find("GroupInput").GetChild(0).Find("Text").GetComponent<TMP_Text>().text;
+        string alphaInput = AlphaTriggerPage.transform.Find("AlphaInput").GetChild(0).Find("Text").GetComponent<TMP_Text>().text;
+        string durationInput = AlphaTriggerPage.transform.Find("DurationInput").GetChild(0).Find("Text").GetComponent<TMP_Text>().text;
+
+        groupInput = groupInput.Replace("\u200b", "").Trim();
+        alphaInput = alphaInput.Replace("\u200b", "").Trim();
+        durationInput = durationInput.Replace("\u200b", "").Trim();
+
+        int group = int.Parse(groupInput);
+        float alpha = float.Parse(alphaInput);
+        float duration = float.Parse(durationInput);
+
+        TriggerValues triggerValues = Selected_Trigger.GetComponent<TriggerValues>();
+
+        if (group > 0)
+        {
+            triggerValues.usedGroup = group;
+        }
+        else
+        {
+            AlphaTriggerPage.transform.Find("GroupInput").GetComponent<TMP_InputField>().SetTextWithoutNotify("0");
+        }
+        
+        if (alpha < 0f)
+        {
+            AlphaTriggerPage.transform.Find("AlphaInput").GetComponent<TMP_InputField>().SetTextWithoutNotify("0");
+            alpha = 0f;
+        }
+        else if (alpha > 1f)
+        {
+            AlphaTriggerPage.transform.Find("AlphaInput").GetComponent<TMP_InputField>().SetTextWithoutNotify("1");
+            alpha = 1f;
+        }
+        triggerValues.opacity = alpha;
+
+        if (duration < 0f)
+        {
+            AlphaTriggerPage.transform.Find("DurationInput").GetComponent<TMP_InputField>().SetTextWithoutNotify("0");
+            duration = 0f;
+        }
+        triggerValues.duration = duration;
+
+        int ChunkID = (int)Math.Ceiling(triggerValues.delay / 0.7f);
+
+        foreach (Alpha_Trigger AT in ATdict[ChunkID].ATbatch)
+        {
+            if (AT.editorID == triggerValues.editorID)
+            {
+                AT.usedGroup = group;
+                AT.duration = duration;
+                AT.opacity = alpha;
+                // Debug.Log(AT.usedGroup);
+            }
+        }
+    }
+
+    private void OpenSpriteTriggerPage()
+    {
+        TriggerValues triggerValues = Selected_Trigger.GetComponent<TriggerValues>();
+        AlphaTriggerPage.SetActive(false);
+        SpriteTriggerPage.SetActive(true);
+
+        SpriteTriggerPage.transform.Find("SpriteName").GetComponent<TMP_Text>().text = triggerValues.spriteName;
+
+        if (triggerValues.usedGroup == 999999)
+        {
+            SpriteTriggerPage.transform.Find("GroupInput").GetComponent<TMP_InputField>().SetTextWithoutNotify("0");
+        }
+        else
+        {
+            SpriteTriggerPage.transform.Find("GroupInput").GetComponent<TMP_InputField>().SetTextWithoutNotify(triggerValues.usedGroup.ToString());
+        }
+
+        if (triggerValues.spriteName == "")
+        {
+            SpriteTriggerPage.transform.Find("ImageContainer").GetChild(0).GetComponent<RawImage>().texture = MissingTexturePic;
+        }
+        else
+        {
+            string spritePath = Path.Combine(Application.persistentDataPath, "Battles", BattleName, "Sprites", triggerValues.spriteName);
+
+            if (File.Exists(spritePath))
+            {
+                byte[] imageBytes = File.ReadAllBytes(spritePath);
+                Texture2D imageTexture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+                imageTexture.filterMode = FilterMode.Point;
+                imageTexture.Apply(true);
+                imageTexture.LoadImage(imageBytes);
+                SpriteTriggerPage.transform.Find("ImageContainer").GetChild(0).GetComponent<RawImage>().texture = imageTexture;
+            }
+            else
+            {
+                SpriteTriggerPage.transform.Find("ImageContainer").GetChild(0).GetComponent<RawImage>().texture = MissingTexturePic;
+            }
+        }
+    }
+
+    public void EditSpriteTrigger()
+    {
+        string groupInput = SpriteTriggerPage.transform.Find("GroupInput").GetChild(0).Find("Text").GetComponent<TMP_Text>().text;
+        groupInput = groupInput.Replace("\u200b", "").Trim();
+
+        TriggerValues triggerValues = Selected_Trigger.GetComponent<TriggerValues>();
+
+        triggerValues.spriteName = SpriteTriggerPage.transform.Find("SpriteName").GetComponent<TMP_Text>().text;
+
+        int group = int.Parse(groupInput);
+
+        if (group > 0)
+        {
+            triggerValues.usedGroup = group;
+        }
+        else
+        {
+            SpriteTriggerPage.transform.Find("GroupInput").GetComponent<TMP_InputField>().SetTextWithoutNotify("0");
+        }
+
+        int ChunkID = (int)Math.Ceiling(triggerValues.delay / 0.7f);
+
+        foreach (Sprite_Trigger ST in STdict[ChunkID].STbatch)
+        {
+            if (ST.editorID == triggerValues.editorID)
+            {
+                ST.usedGroup = group;
+                ST.spritename = triggerValues.spriteName;
+                // Debug.Log(ST.usedGroup);
+            }
+        }
+    }
 
     public void SetSelectedToolButton(Button button)            // Задает выбранную кнопку вверху
     {
@@ -799,7 +967,7 @@ public class EditorScript : MonoBehaviour
 
         OCdict.TryAdd(chunkNum, new List<int>());
 
-        if (!OCdict[chunkNum].Contains((int)preCoords))
+        if (!OCdict[chunkNum].Contains((int)preCoords) & preCoords >= 0)
         {
             Button Added_Trigger = Instantiate(Trigger, new Vector3(Lane_X[(int)Closest_Lane] + 2f + Closest_Lane, Local_Y, 1f), Trigger.transform.rotation);
 
@@ -867,6 +1035,8 @@ public class EditorScript : MonoBehaviour
             }
 
             Added_Trigger.onClick.AddListener(delegate { SetSelectedTrigger(Added_Trigger); });
+
+            SetSelectedTrigger(Added_Trigger);
         }
     }
     // 
@@ -1166,12 +1336,13 @@ public class EditorScript : MonoBehaviour
         TriggerValues triggerValues = Added_Trigger.GetComponent<TriggerValues>();
 
         triggerValues.triggerType = "alpha_trigger";
-        triggerValues.duration = 0f;
-        triggerValues.opacity = 1f;
+        triggerValues.duration = AT.duration;
+        triggerValues.opacity = AT.opacity;
         triggerValues.editorLane = AT.editorLane;
         triggerValues.delay = (float)Math.Round(AT.delay, 2);
         triggerValues.occupied_space = OC;
         triggerValues.editorID = AT.editorID;
+        triggerValues.usedGroup = AT.usedGroup;
 
         Added_Trigger.GetComponent<RectTransform>().sizeDelta = new Vector2(140, 45);
 
@@ -1195,6 +1366,7 @@ public class EditorScript : MonoBehaviour
         triggerValues.occupied_space = OC;
         triggerValues.editorID = ST.editorID;
         triggerValues.spriteName = ST.spritename;
+        triggerValues.usedGroup = ST.usedGroup;
 
         Added_Trigger.GetComponent<RectTransform>().sizeDelta = new Vector2(140, 45);
 
@@ -1299,10 +1471,15 @@ public class EditorScript : MonoBehaviour
         SNdict = new Dictionary<int, SNchunk>();
         WNdict = new Dictionary<int, WNchunk>();
         CNdict = new Dictionary<int, CNchunk>();
+
+        ATdict = new Dictionary<int, ATchunk>();
+        STdict = new Dictionary<int, STchunk>();
+
         SceneObjects = new Dictionary<int, SceneObject>();
 
         string chartPath = Path.Combine(Application.persistentDataPath, "Battles", BattleName, "Chart.json");
         string objectsPath = Path.Combine(Application.persistentDataPath, "Battles", BattleName, "Objects.json");
+        string triggersPath = Path.Combine(Application.persistentDataPath, "Battles", BattleName, "Triggers.json");
         string text;
 
         if (!File.Exists(chartPath))
@@ -1312,6 +1489,10 @@ public class EditorScript : MonoBehaviour
         if (!File.Exists(objectsPath))
         {
             File.Create(objectsPath).Dispose();
+        }
+        if (!File.Exists(triggersPath))
+        {
+            File.Create(triggersPath).Dispose();
         }
 
         text = File.ReadAllText(chartPath);
@@ -1415,6 +1596,57 @@ public class EditorScript : MonoBehaviour
             }
         }
 
+        text = File.ReadAllText(triggersPath);
+
+        AllTriggers = JsonUtility.FromJson<AllTriggerList>(text);
+
+        if (AllTriggers == null)
+        {
+            AllTriggers = new AllTriggerList();
+            return;
+        }
+
+        if (AllTriggers.AlphaTriggers.alpha_trigger.Length != 0)
+        {
+            AllAlphaTriggers = AllTriggers.AlphaTriggers;
+        }
+        if (AllTriggers.SpriteTriggers.sprite_trigger.Length != 0)
+        {
+            AllSpriteTriggers = AllTriggers.SpriteTriggers;
+        }
+
+        foreach (Alpha_Trigger AT in AllAlphaTriggers.alpha_trigger)
+        {
+            int ChunkNum = (int)Math.Ceiling(AT.delay / 0.7f);
+
+            ATchunk newATChunk = new ATchunk();
+            ATdict.TryAdd(ChunkNum, newATChunk);
+            Array.Resize(ref ATdict[ChunkNum].ATbatch, ATdict[ChunkNum].ATbatch.Length + 1);
+            ATdict[ChunkNum].ATbatch[ATdict[ChunkNum].ATbatch.Length - 1] = AT;
+
+            if (AT.editorID > LastNoteID)
+            {
+                LastNoteID = AT.editorID;
+            }
+            Occupied_Coords.Add((float)Math.Round(AT.delay * 400f + AT.editorLane));
+        }
+
+        foreach (Sprite_Trigger ST in AllSpriteTriggers.sprite_trigger)
+        {
+            int ChunkNum = (int)Math.Ceiling(ST.delay / 0.7f);
+
+            STchunk newSTChunk = new STchunk();
+            STdict.TryAdd(ChunkNum, newSTChunk);
+            Array.Resize(ref STdict[ChunkNum].STbatch, STdict[ChunkNum].STbatch.Length + 1);
+            STdict[ChunkNum].STbatch[STdict[ChunkNum].STbatch.Length - 1] = ST;
+
+            if (ST.editorID > LastNoteID)
+            {
+                LastNoteID = ST.editorID;
+            }
+            Occupied_Coords.Add((float)Math.Round(ST.delay * 400f + ST.editorLane));
+        }
+
         foreach (float OC in Occupied_Coords)
         {
             float delay = (float)Math.Round((OC - (OC % 20f)) / 400f, 2);
@@ -1422,10 +1654,6 @@ public class EditorScript : MonoBehaviour
             OCdict.TryAdd(ChunkID, new List<int>());
             OCdict[ChunkID].Add((int)OC);
         }
-
-
-        // Debug.Log(SNdict[1].SNbatch.Length);
-        // StartCoroutine(PlaceImportedNotes());
     }
 
     // public void CheckSN()
@@ -1518,7 +1746,11 @@ public class EditorScript : MonoBehaviour
             }
         }
 
-        
+        if (Selected_Trigger == null)
+        {
+            AlphaTriggerPage.SetActive(false);
+            SpriteTriggerPage.SetActive(false);
+        }
         
         DrawnChunks = ChunksToCheck;
     }
@@ -1562,7 +1794,13 @@ public class EditorScript : MonoBehaviour
             ObjectEditPage.SetActive(false);
             ObjectPageSwitcher.SetActive(false);
             buttonText = "OBJECT MENU";
+
+            if (Selected_Trigger != null)
+            {
+                SetSelectedTrigger(Selected_Trigger.GetComponent<Button>());                           // чтобы меню треггера оставалось открытым
+            }
         }
+
         PageToggleButton.GetComponentInChildren<TMP_Text>().text = buttonText;
 
         DisplayObjects();
@@ -1570,6 +1808,7 @@ public class EditorScript : MonoBehaviour
 
     public void ToggleAddObjectWindow()
     {
+        SpriteTriggerPage.SetActive(false);
         ObjectEditPage.SetActive(true);            
         AddObjectButton.SetActive(false);
         ObjectWindow.SetActive(false);
@@ -1590,6 +1829,7 @@ public class EditorScript : MonoBehaviour
 
     public void OpenObjectEdit(GameObject IDtext)
     {
+        SpriteTriggerPage.SetActive(false);
         ObjectEditPage.transform.Find("TitleText").GetComponent<TMP_Text>().text = "Edit Object";
         ObjectEditPage.SetActive(true);
         AddObjectButton.SetActive(false);
@@ -1667,6 +1907,22 @@ public class EditorScript : MonoBehaviour
         ObjectEditPage.transform.Find("ImageContainer").GetChild(0).GetComponent<RawImage>().texture = IconTexture;
         string spriteName = Icon.transform.parent.parent.Find("TextContainer").GetChild(0).GetComponent<TMP_Text>().text;
         ObjectEditPage.transform.Find("ImageContainer").GetChild(1).GetComponent<TMP_Text>().text = spriteName;
+    }
+
+    public void SetSTmenuImage(GameObject Icon)
+    {
+        if (!SpriteTriggerPage.activeInHierarchy)
+        {
+            return;
+        }
+        Texture IconTexture = Icon.GetComponent<RawImage>().texture;
+
+        SpriteTriggerPage.transform.Find("ImageContainer").GetChild(0).GetComponent<RawImage>().texture = IconTexture;
+
+        string spritename = Icon.transform.parent.parent.Find("TextContainer").GetChild(0).GetComponent<TMP_Text>().text;
+
+        // Selected_Trigger.GetComponent<TriggerValues>().spriteName = spritename;
+        SpriteTriggerPage.transform.Find("SpriteName").GetComponent<TMP_Text>().text = spritename;
     }
 
     IEnumerator FadeTextFlash()
@@ -1960,6 +2216,7 @@ public class EditorScript : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(Application.persistentDataPath);
         Time.timeScale = 1f;
         BattleName = BattleManagerScript.battleName;
 
@@ -2007,6 +2264,8 @@ public class EditorScript : MonoBehaviour
         ObjectPageSwitcher.SetActive(false);
         ObjectEditPage.SetActive(false);
         AddObjectButton.SetActive(false);
+        AlphaTriggerPage.SetActive(false);
+        SpriteTriggerPage.SetActive(false);
 
         ImportFromJson();
         ObjectPageCount = (int)Math.Ceiling(((float)SceneObjects.Count) / 5f);
@@ -2133,78 +2392,6 @@ public class EditorScript : MonoBehaviour
     }
 
 
-    public void ExportToJson()
-    {
-        AllNotes.SimpleNotes = new SimpleNoteList();
-        AllNotes.WallNotes = new WallNoteList();
-        AllNotes.CrackerNotes = new CrackerNoteList();
-
-        Simple_Note[] SNlist = AllNotes.SimpleNotes.simple_note;
-        Wall_Note[] WNlist = AllNotes.WallNotes.wall_note;
-        Cracker_Note[] CNlist = AllNotes.CrackerNotes.cracker_note;
-
-
-        foreach (Transform child in Note_Container.transform)
-        {
-            if (child.tag == "Note")
-            {
-                SimpleNoteStats stats = child.GetComponent<SimpleNoteStats>();
-                if (stats.type == "simple_note")
-                {
-                    Simple_Note SN = new Simple_Note();
-                    SN.color = stats.color;
-                    SN.rand_lanes = stats.rand_lanes;
-                    SN.delay = stats.delay;
-                    SN.speed = stats.speed;
-                    // SN.speed = 20;
-                    SN.width = stats.width;
-                    SN.editorID = stats.editorID;
-                    
-                    Array.Resize(ref SNlist, SNlist.Length + 1);
-                    SNlist[SNlist.Length - 1] = new Simple_Note();
-                    SNlist[SNlist.Length - 1] = SN;
-                }
-                else if (stats.type == "wall_note")
-                {
-                    Wall_Note WN = new Wall_Note();
-                    WN.color = stats.color;
-                    WN.rand_lanes = stats.rand_lanes;
-                    WN.delay = stats.delay;
-                    WN.speed = stats.speed;
-                    WN.editorID = stats.editorID;
-                    
-                    Array.Resize(ref WNlist, WNlist.Length + 1);
-                    WNlist[WNlist.Length - 1] = new Wall_Note();
-                    WNlist[WNlist.Length - 1] = WN;
-                }
-                else if (stats.type == "cracker_note")
-                {
-                    Cracker_Note CN = new Cracker_Note();
-                    CN.color = stats.color;
-                    CN.rand_lanes = stats.rand_lanes;
-                    CN.delay = stats.delay;
-                    CN.speed = stats.speed;
-                    CN.editorID = stats.editorID;
-                    
-                    Array.Resize(ref CNlist, CNlist.Length + 1);
-                    CNlist[CNlist.Length - 1] = new Cracker_Note();
-                    CNlist[CNlist.Length - 1] = CN;
-                }
-            }
-        }
-        // Debug.Log(SNlist.Length);
-        AllNotes.SimpleNotes.simple_note = SNlist;
-        AllNotes.WallNotes.wall_note = WNlist;
-        AllNotes.CrackerNotes.cracker_note = CNlist;
-
-
-
-
-        string ChartString = JsonUtility.ToJson(AllNotes, true);
-        string FolderPath = Path.Combine(Application.persistentDataPath, "Battles", BattleName);
-        File.WriteAllText(FolderPath + "/Chart.json", ChartString);
-    }
-
     public void ExportChart()           // Новый метод
     {
         AllNotes.SimpleNotes = new SimpleNoteList();
@@ -2299,6 +2486,40 @@ public class EditorScript : MonoBehaviour
         string ObjectsString = JsonUtility.ToJson(AllSceneObjects, true);
         FolderPath = Path.Combine(Application.persistentDataPath, "Battles", BattleName);
         File.WriteAllText(FolderPath + "/Objects.json", ObjectsString);
+
+
+        AllTriggers.AlphaTriggers = new AlphaTriggerList();
+        AllTriggers.SpriteTriggers = new SpriteTriggerList();
+
+        Alpha_Trigger[] ATlist = AllTriggers.AlphaTriggers.alpha_trigger;
+        Sprite_Trigger[] STlist = AllTriggers.SpriteTriggers.sprite_trigger;
+
+        foreach (KeyValuePair<int, ATchunk> i in ATdict)
+        {
+            foreach (Alpha_Trigger AT in i.Value.ATbatch)
+            {
+                Array.Resize(ref ATlist, ATlist.Length + 1);
+                ATlist[ATlist.Length - 1] = new Alpha_Trigger();
+                ATlist[ATlist.Length - 1] = AT;
+            }
+        }
+
+        foreach (KeyValuePair<int, STchunk> i in STdict)
+        {
+            foreach (Sprite_Trigger ST in i.Value.STbatch)
+            {
+                Array.Resize(ref STlist, STlist.Length + 1);
+                STlist[STlist.Length - 1] = new Sprite_Trigger();
+                STlist[STlist.Length - 1] = ST;
+            }
+        }
+
+        AllTriggers.AlphaTriggers.alpha_trigger = ATlist;
+        AllTriggers.SpriteTriggers.sprite_trigger = STlist;
+
+        string TriggerString = JsonUtility.ToJson(AllTriggers, true);
+        FolderPath = Path.Combine(Application.persistentDataPath, "Battles", BattleName);
+        File.WriteAllText(FolderPath + "/Triggers.json", TriggerString);
     }
 
     public void SelectAndLoadSprite()
