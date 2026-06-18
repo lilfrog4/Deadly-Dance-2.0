@@ -5,16 +5,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
+    [SerializeField] private Rigidbody2D rb;
     
-    private CharacterController controller;
     public static bool IsMovementBlocked = false;
+    
+    private float horizontal;
     
     private void Start()
     {
-        controller = GetComponent<CharacterController>();
-        
-        if (controller == null)
-            controller = gameObject.AddComponent<CharacterController>();
+        // Получаем компоненты, если не назначены в инспекторе
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
         
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,17 +26,17 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
-        float horizontal = 0;
-        
-        // Движение только если не заблокировано
+        // Получаем ввод в Update
         if (!IsMovementBlocked)
         {
             horizontal = Input.GetAxis("Horizontal");
-            Vector3 move = transform.right * horizontal;
-            controller.Move(move * speed * Time.deltaTime);
+        }
+        else
+        {
+            horizontal = 0;
         }
         
-        // Анимация: если движение заблокировано или нет движения — не ходим
+        // Обновляем анимацию и поворот спрайта
         bool isWalking = !IsMovementBlocked && (horizontal != 0);
         
         if (animator != null)
@@ -43,10 +44,24 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isWalking", isWalking);
         }
         
-        // Разворот спрайта (только если движение не заблокировано)
         if (!IsMovementBlocked && horizontal != 0)
         {
             spriteRenderer.flipX = horizontal < 0;
+        }
+    }
+    
+    private void FixedUpdate()
+    {
+        // Движение через физику в FixedUpdate
+        if (!IsMovementBlocked)
+        {
+            Vector2 move = new Vector2(horizontal * speed * Time.fixedDeltaTime, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(move.x, rb.linearVelocity.y);
+        }
+        else
+        {
+            // Останавливаем движение по X при блокировке
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
     }
 }
