@@ -779,7 +779,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 328f0a76d4102a547ade25d03e6b5aa0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 87e9e5cc1df3a074fad6a30375fb2f3b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1587,7 +1587,7 @@ MonoBehaviour:
   ChartData: {fileID: 0}
   loopDelay: 0
   Allow_Looping: 0
-  BattleName: Battle1
+  BattleName: Oora
   SceneObjectManager: {fileID: 1142872995}
   SceneObjectPrefab: {fileID: 8505046428653934082, guid: 7df0c6b9728be6c4888abc9214cf5f5d, type: 3}
   One_Wide_Sprite: {fileID: 3424261674067332461, guid: 23045dd9b729901449c9019216671045, type: 3}

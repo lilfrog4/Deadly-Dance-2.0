@@ -1,0 +1,16 @@
+{
+    "scene_object": [
+        {
+            "editorID": 1,
+            "objectIDs": [
+                1
+            ],
+            "spriteName": "Oora.png",
+            "alpha": 100.0,
+            "Xpos": 0.0,
+            "Ypos": 50.0,
+            "scale": 0.6000000238418579,
+            "zOrder": 11
+        }
+    ]
+}
