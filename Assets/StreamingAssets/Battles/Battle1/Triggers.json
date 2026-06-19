@@ -1,0 +1,373 @@
+{
+    "AlphaTriggers": {
+        "alpha_trigger": []
+    },
+    "SpriteTriggers": {
+        "sprite_trigger": [
+            {
+                "editorLane": 5,
+                "editorID": 1,
+                "usedGroup": 1,
+                "delay": 0.10000000149011612,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 2,
+                "usedGroup": 1,
+                "delay": 0.6000000238418579,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 3,
+                "usedGroup": 1,
+                "delay": 1.0,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 4,
+                "usedGroup": 1,
+                "delay": 1.4500000476837159,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 5,
+                "usedGroup": 1,
+                "delay": 2.0,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 6,
+                "usedGroup": 1,
+                "delay": 2.450000047683716,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 7,
+                "usedGroup": 1,
+                "delay": 2.950000047683716,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 8,
+                "usedGroup": 1,
+                "delay": 3.4000000953674318,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 9,
+                "usedGroup": 1,
+                "delay": 3.8499999046325685,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 10,
+                "usedGroup": 1,
+                "delay": 4.300000190734863,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 11,
+                "usedGroup": 1,
+                "delay": 4.75,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 12,
+                "usedGroup": 1,
+                "delay": 5.199999809265137,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 13,
+                "usedGroup": 1,
+                "delay": 5.650000095367432,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 14,
+                "usedGroup": 1,
+                "delay": 6.150000095367432,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 15,
+                "usedGroup": 1,
+                "delay": 6.599999904632568,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 16,
+                "usedGroup": 1,
+                "delay": 7.0,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 17,
+                "usedGroup": 1,
+                "delay": 8.350000381469727,
+                "spritename": "Citygull_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 18,
+                "usedGroup": 1,
+                "delay": 8.550000190734864,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 19,
+                "usedGroup": 1,
+                "delay": 10.25,
+                "spritename": "Citygull_battle_f3.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 20,
+                "usedGroup": 1,
+                "delay": 10.449999809265137,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 21,
+                "usedGroup": 1,
+                "delay": 12.0,
+                "spritename": "Citygull_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 22,
+                "usedGroup": 1,
+                "delay": 12.199999809265137,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 23,
+                "usedGroup": 1,
+                "delay": 13.899999618530274,
+                "spritename": "Citygull_battle_f3.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 24,
+                "usedGroup": 1,
+                "delay": 14.100000381469727,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 25,
+                "usedGroup": 1,
+                "delay": 14.949999809265137,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 26,
+                "usedGroup": 1,
+                "delay": 16.25,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 27,
+                "usedGroup": 1,
+                "delay": 16.450000762939454,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 28,
+                "usedGroup": 1,
+                "delay": 18.049999237060548,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 29,
+                "usedGroup": 1,
+                "delay": 18.299999237060548,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 30,
+                "usedGroup": 1,
+                "delay": 19.649999618530275,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 31,
+                "usedGroup": 1,
+                "delay": 22.299999237060548,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 32,
+                "usedGroup": 1,
+                "delay": 27.799999237060548,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 33,
+                "usedGroup": 1,
+                "delay": 29.649999618530275,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 34,
+                "usedGroup": 1,
+                "delay": 30.899999618530275,
+                "spritename": "Citygull_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 35,
+                "usedGroup": 1,
+                "delay": 31.149999618530275,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 36,
+                "usedGroup": 1,
+                "delay": 31.399999618530275,
+                "spritename": "Citygull_battle_f3.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 37,
+                "usedGroup": 1,
+                "delay": 31.649999618530275,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 38,
+                "usedGroup": 1,
+                "delay": 33.349998474121097,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 39,
+                "usedGroup": 1,
+                "delay": 34.45000076293945,
+                "spritename": "Citygull_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 40,
+                "usedGroup": 1,
+                "delay": 34.650001525878909,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 41,
+                "usedGroup": 1,
+                "delay": 34.849998474121097,
+                "spritename": "Citygull_battle_f3.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 42,
+                "usedGroup": 1,
+                "delay": 35.04999923706055,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 43,
+                "usedGroup": 1,
+                "delay": 37.04999923706055,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 44,
+                "usedGroup": 1,
+                "delay": 38.25,
+                "spritename": "Citygull_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 45,
+                "usedGroup": 1,
+                "delay": 38.45000076293945,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 46,
+                "usedGroup": 1,
+                "delay": 38.650001525878909,
+                "spritename": "Citygull_battle_f3.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 47,
+                "usedGroup": 1,
+                "delay": 38.849998474121097,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 48,
+                "usedGroup": 1,
+                "delay": 40.79999923706055,
+                "spritename": "Citygull-battle_f4.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 49,
+                "usedGroup": 1,
+                "delay": 41.900001525878909,
+                "spritename": "Citygull_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 50,
+                "usedGroup": 1,
+                "delay": 42.099998474121097,
+                "spritename": "Citygull-battle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 51,
+                "usedGroup": 1,
+                "delay": 42.29999923706055,
+                "spritename": "Citygull_battle_f3.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 52,
+                "usedGroup": 1,
+                "delay": 42.5,
+                "spritename": "Citygull-battle_f1.png"
+            }
+        ]
+    }
+}
