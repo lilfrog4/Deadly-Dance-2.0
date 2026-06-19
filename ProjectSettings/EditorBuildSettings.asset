@@ -41,6 +41,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WalkGameplay/Scenes/3Scene.unity
     guid: 3a6db6ec4c4cb5c4cafc734aee0d4c3f
+  - enabled: 1
+    path: Assets/Scenes/MaestoBattleScene.unity
+    guid: 500161271b8fbb74b983e5bd6ce33425
+  - enabled: 1
+    path: Assets/WalkGameplay/Scenes/GullBattleScene.unity
+    guid: 021df8a5f5041c24d80c7d25abffba72
+  - enabled: 1
+    path: Assets/WalkGameplay/Scenes/OoraBattleScene.unity
+    guid: f91236799c981e24da05b5eefe41fd32
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -2240,7 +2240,7 @@ MonoBehaviour:
     - ...
     - "\u0422\u044B \u043C\u0435\u043D\u044F \u0440\u0430\u0437\u043E\u0437\u043B\u0438\u043B."
     - "\u0421\u0435\u0439\u0447\u0430\u0441 \u0442\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0448\u044C..."
-    - "\u0412\u0417\u0411\u0423\u0427\u041A\u0423"
+    - "\u0412\u0417\u0411\u0423\u0427\u041A\u0423!!!"
     phraseColors:
     - {r: 1, g: 1, b: 0, a: 1}
     - {r: 1, g: 0.42352942, b: 0, a: 1}
@@ -2252,7 +2252,7 @@ MonoBehaviour:
     - {r: 1, g: 1, b: 0, a: 1}
     - {r: 1, g: 1, b: 0, a: 1}
     uses: 1
-    nextScene: 
+    nextScene: GullBattleScene
   white: {r: 1, g: 1, b: 1, a: 1}
   red: {r: 1, g: 0, b: 0, a: 1}
   green: {r: 0, g: 1, b: 0, a: 1}
@@ -5828,6 +5828,7 @@ GameObject:
   - component: {fileID: 689133532}
   - component: {fileID: 689133530}
   - component: {fileID: 689133533}
+  - component: {fileID: 689133534}
   m_Layer: 0
   m_Name: "\u0447\u0430\u0439\u043A\u0430"
   m_TagString: Untagged
@@ -5921,6 +5922,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5227394, y: 0.46887207}
   m_EdgeRadius: 0
+--- !u!114 &689133534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689133529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ccc19d7ab7e3e41a8015c60a1801b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDieChecker
+  enemyName: Enemy
+  deactivateIfDie: 1
+  destroyIfDie: 0
 --- !u!1 &705986950
 GameObject:
   m_ObjectHideFlags: 0
