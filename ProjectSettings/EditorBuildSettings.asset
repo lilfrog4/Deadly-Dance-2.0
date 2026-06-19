@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WalkGameplay/Scenes/FirstBattleScene.unity
     guid: fc1c55da03d938a4aa233ad379d9c16b
+  - enabled: 1
+    path: Assets/WalkGameplay/Scenes/2Scene.unity
+    guid: b304c8e556ae2f04290b949e9fac283c
+  - enabled: 1
+    path: Assets/WalkGameplay/Scenes/3Scene.unity
+    guid: 3a6db6ec4c4cb5c4cafc734aee0d4c3f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

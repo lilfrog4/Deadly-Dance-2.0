@@ -68,6 +68,7 @@ public class DialogueSystem : MonoBehaviour
         
         CheckTriggers();
         CheckButtons();
+        CheckYButton(); // ★★★ НОВЫЙ МЕТОД ★★★
     }
     
     private void ShowPhrase()
@@ -112,6 +113,31 @@ public class DialogueSystem : MonoBehaviour
                 return;
             }
         }
+    }
+    
+    // ★★★ НОВЫЙ МЕТОД: проверка на клавишу Y ★★★
+    private void CheckYButton()
+    {
+        // Проверяем нажатие клавиши Y
+        if (!Input.GetKeyDown(KeyCode.Y)) return;
+        
+        Debug.Log("Нажата клавиша Y! Поиск диалога для запуска...");
+        
+        // Ищем диалог, который можно запустить без дополнительных условий
+        // Используем первый диалог, у которого остались использования
+        foreach (Dialogue d in dialogues)
+        {
+            int left = remaining.ContainsKey(d.name) ? remaining[d.name] : 0;
+            
+            if (left > 0)
+            {
+                Debug.Log($"Запуск диалога '{d.name}' по клавише Y");
+                StartDlg(d.name);
+                return;
+            }
+        }
+        
+        Debug.Log("Нет доступных диалогов для запуска по клавише Y");
     }
     
     private void StartDlg(string name)
@@ -174,10 +200,8 @@ public class DialogueSystem : MonoBehaviour
         return 0;
     }
     
-    // ========== ДОБАВЛЕННЫЙ МЕТОД ==========
     public bool IsDialogueActive()
     {
         return isActive;
     }
-    // ======================================
 }
