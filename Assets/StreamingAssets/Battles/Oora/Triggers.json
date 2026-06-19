@@ -1,0 +1,65 @@
+{
+    "AlphaTriggers": {
+        "alpha_trigger": []
+    },
+    "SpriteTriggers": {
+        "sprite_trigger": [
+            {
+                "editorLane": 5,
+                "editorID": 193,
+                "usedGroup": 1,
+                "delay": 0.5,
+                "spritename": "Oora_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 194,
+                "usedGroup": 1,
+                "delay": 1.2000000476837159,
+                "spritename": "Oora.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 195,
+                "usedGroup": 1,
+                "delay": 2.549999952316284,
+                "spritename": "Oora_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 196,
+                "usedGroup": 1,
+                "delay": 3.5,
+                "spritename": "Oora.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 197,
+                "usedGroup": 1,
+                "delay": 4.5,
+                "spritename": "Oora_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 198,
+                "usedGroup": 1,
+                "delay": 5.449999809265137,
+                "spritename": "Oora.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 199,
+                "usedGroup": 1,
+                "delay": 6.300000190734863,
+                "spritename": "Oora_battle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 200,
+                "usedGroup": 1,
+                "delay": 7.199999809265137,
+                "spritename": "Oora.png"
+            }
+        ]
+    }
+}

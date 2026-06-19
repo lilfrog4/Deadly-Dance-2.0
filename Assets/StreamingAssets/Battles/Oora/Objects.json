@@ -5,12 +5,12 @@
             "objectIDs": [
                 1
             ],
-            "spriteName": "Citygull-battle_f1.png",
+            "spriteName": "Oora.png",
             "alpha": 100.0,
             "Xpos": 0.0,
-            "Ypos": 40.0,
-            "scale": 0.5,
-            "zOrder": 10
+            "Ypos": 50.0,
+            "scale": 0.6000000238418579,
+            "zOrder": 11
         }
     ]
 }
