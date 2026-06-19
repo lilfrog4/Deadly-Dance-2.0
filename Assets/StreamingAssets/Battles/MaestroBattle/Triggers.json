@@ -1,0 +1,2016 @@
+{
+    "AlphaTriggers": {
+        "alpha_trigger": [
+            {
+                "editorLane": 5,
+                "editorID": 180,
+                "usedGroup": 1,
+                "delay": 0.15000000596046449,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 186,
+                "usedGroup": 1,
+                "delay": 0.20000000298023225,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 187,
+                "usedGroup": 1,
+                "delay": 1.5,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 188,
+                "usedGroup": 2,
+                "delay": 1.7999999523162842,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 189,
+                "usedGroup": 1,
+                "delay": 1.5499999523162842,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 190,
+                "usedGroup": 2,
+                "delay": 1.850000023841858,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 191,
+                "usedGroup": 3,
+                "delay": 3.5,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 192,
+                "usedGroup": 3,
+                "delay": 3.549999952316284,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 193,
+                "usedGroup": 1,
+                "delay": 5.199999809265137,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 197,
+                "usedGroup": 1,
+                "delay": 5.25,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 194,
+                "usedGroup": 2,
+                "delay": 5.849999904632568,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 198,
+                "usedGroup": 2,
+                "delay": 5.900000095367432,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 195,
+                "usedGroup": 1,
+                "delay": 6.550000190734863,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 199,
+                "usedGroup": 1,
+                "delay": 6.599999904632568,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 196,
+                "usedGroup": 3,
+                "delay": 7.050000190734863,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 200,
+                "usedGroup": 3,
+                "delay": 7.099999904632568,
+                "duration": 0.699999988079071,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 201,
+                "usedGroup": 1,
+                "delay": 8.399999618530274,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 202,
+                "usedGroup": 2,
+                "delay": 8.600000381469727,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 203,
+                "usedGroup": 1,
+                "delay": 8.449999809265137,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 204,
+                "usedGroup": 2,
+                "delay": 8.649999618530274,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 205,
+                "usedGroup": 3,
+                "delay": 10.25,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 206,
+                "usedGroup": 3,
+                "delay": 10.300000190734864,
+                "duration": 0.699999988079071,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 207,
+                "usedGroup": 4,
+                "delay": 12.0,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 5,
+                "editorID": 208,
+                "usedGroup": 4,
+                "delay": 12.050000190734864,
+                "duration": 0.4000000059604645,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 209,
+                "usedGroup": 4,
+                "delay": 12.649999618530274,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 5,
+                "editorID": 210,
+                "usedGroup": 4,
+                "delay": 12.699999809265137,
+                "duration": 0.4000000059604645,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 212,
+                "usedGroup": 3,
+                "delay": 13.300000190734864,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 389,
+                "usedGroup": 3,
+                "delay": 30.25,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 390,
+                "usedGroup": 1,
+                "delay": 30.549999237060548,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 391,
+                "usedGroup": 1,
+                "delay": 30.600000381469728,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 392,
+                "usedGroup": 2,
+                "delay": 31.049999237060548,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 393,
+                "usedGroup": 2,
+                "delay": 31.100000381469728,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 394,
+                "usedGroup": 1,
+                "delay": 31.350000381469728,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 396,
+                "usedGroup": 1,
+                "delay": 31.399999618530275,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 395,
+                "usedGroup": 2,
+                "delay": 31.75,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 397,
+                "usedGroup": 2,
+                "delay": 31.799999237060548,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 398,
+                "usedGroup": 1,
+                "delay": 32.20000076293945,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 399,
+                "usedGroup": 2,
+                "delay": 32.599998474121097,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 400,
+                "usedGroup": 1,
+                "delay": 32.25,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 401,
+                "usedGroup": 2,
+                "delay": 32.650001525878909,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 402,
+                "usedGroup": 1,
+                "delay": 33.0,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 403,
+                "usedGroup": 2,
+                "delay": 33.45000076293945,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 404,
+                "usedGroup": 2,
+                "delay": 33.5,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 405,
+                "usedGroup": 1,
+                "delay": 33.04999923706055,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 406,
+                "usedGroup": 3,
+                "delay": 33.95000076293945,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 415,
+                "usedGroup": 3,
+                "delay": 37.29999923706055,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 416,
+                "usedGroup": 1,
+                "delay": 37.5,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 424,
+                "usedGroup": 1,
+                "delay": 37.54999923706055,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 417,
+                "usedGroup": 2,
+                "delay": 37.849998474121097,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 418,
+                "usedGroup": 1,
+                "delay": 38.29999923706055,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 425,
+                "usedGroup": 2,
+                "delay": 37.900001525878909,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 426,
+                "usedGroup": 1,
+                "delay": 38.349998474121097,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 419,
+                "usedGroup": 2,
+                "delay": 38.599998474121097,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 420,
+                "usedGroup": 1,
+                "delay": 39.099998474121097,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 427,
+                "usedGroup": 2,
+                "delay": 38.650001525878909,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 428,
+                "usedGroup": 1,
+                "delay": 39.150001525878909,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 421,
+                "usedGroup": 2,
+                "delay": 39.5,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 429,
+                "usedGroup": 2,
+                "delay": 39.54999923706055,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 422,
+                "usedGroup": 1,
+                "delay": 40.0,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 423,
+                "usedGroup": 2,
+                "delay": 40.45000076293945,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 430,
+                "usedGroup": 1,
+                "delay": 40.04999923706055,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 431,
+                "usedGroup": 2,
+                "delay": 40.5,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 432,
+                "usedGroup": 4,
+                "delay": 40.79999923706055,
+                "duration": 0.5,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 433,
+                "usedGroup": 4,
+                "delay": 41.29999923706055,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 468,
+                "usedGroup": 3,
+                "delay": 42.79999923706055,
+                "duration": 1.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 469,
+                "usedGroup": 3,
+                "delay": 43.79999923706055,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 470,
+                "usedGroup": 3,
+                "delay": 44.79999923706055,
+                "duration": 1.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 471,
+                "usedGroup": 3,
+                "delay": 45.79999923706055,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 472,
+                "usedGroup": 4,
+                "delay": 48.04999923706055,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 485,
+                "usedGroup": 4,
+                "delay": 48.099998474121097,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 473,
+                "usedGroup": 4,
+                "delay": 48.5,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 474,
+                "usedGroup": 4,
+                "delay": 48.95000076293945,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 486,
+                "usedGroup": 4,
+                "delay": 48.54999923706055,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 475,
+                "usedGroup": 4,
+                "delay": 49.400001525878909,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 487,
+                "usedGroup": 4,
+                "delay": 49.0,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 488,
+                "usedGroup": 4,
+                "delay": 49.45000076293945,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 476,
+                "usedGroup": 4,
+                "delay": 49.849998474121097,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 477,
+                "usedGroup": 4,
+                "delay": 50.20000076293945,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 489,
+                "usedGroup": 4,
+                "delay": 49.900001525878909,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 490,
+                "usedGroup": 4,
+                "delay": 50.25,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 478,
+                "usedGroup": 4,
+                "delay": 50.650001525878909,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 491,
+                "usedGroup": 4,
+                "delay": 50.70000076293945,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 480,
+                "usedGroup": 4,
+                "delay": 51.150001525878909,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 479,
+                "usedGroup": 4,
+                "delay": 51.54999923706055,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 492,
+                "usedGroup": 4,
+                "delay": 51.20000076293945,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 493,
+                "usedGroup": 4,
+                "delay": 51.599998474121097,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 482,
+                "usedGroup": 4,
+                "delay": 51.95000076293945,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 481,
+                "usedGroup": 4,
+                "delay": 52.349998474121097,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 494,
+                "usedGroup": 4,
+                "delay": 52.0,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 495,
+                "usedGroup": 4,
+                "delay": 52.400001525878909,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 483,
+                "usedGroup": 4,
+                "delay": 52.849998474121097,
+                "duration": 0.0,
+                "opacity": 0.5
+            },
+            {
+                "editorLane": 5,
+                "editorID": 484,
+                "usedGroup": 4,
+                "delay": 52.900001525878909,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 605,
+                "usedGroup": 4,
+                "delay": 56.54999923706055,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 6,
+                "editorID": 606,
+                "usedGroup": 4,
+                "delay": 56.599998474121097,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 607,
+                "usedGroup": 4,
+                "delay": 58.349998474121097,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 6,
+                "editorID": 608,
+                "usedGroup": 4,
+                "delay": 58.400001525878909,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 613,
+                "usedGroup": 4,
+                "delay": 60.150001525878909,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 6,
+                "editorID": 614,
+                "usedGroup": 4,
+                "delay": 60.20000076293945,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 615,
+                "usedGroup": 1,
+                "delay": 60.5,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 616,
+                "usedGroup": 1,
+                "delay": 60.54999923706055,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 617,
+                "usedGroup": 2,
+                "delay": 60.900001525878909,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 618,
+                "usedGroup": 2,
+                "delay": 60.95000076293945,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 748,
+                "usedGroup": 3,
+                "delay": 55.349998474121097,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 841,
+                "usedGroup": 3,
+                "delay": 63.599998474121097,
+                "duration": 0.20000000298023225,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 842,
+                "usedGroup": 1,
+                "delay": 63.95000076293945,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 6,
+                "editorID": 843,
+                "usedGroup": 2,
+                "delay": 63.95000076293945,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 5,
+                "editorID": 844,
+                "usedGroup": 3,
+                "delay": 64.0999984741211,
+                "duration": 0.0,
+                "opacity": 0.5
+            },
+            {
+                "editorLane": 5,
+                "editorID": 845,
+                "usedGroup": 1,
+                "delay": 64.0,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 846,
+                "usedGroup": 2,
+                "delay": 64.0,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 847,
+                "usedGroup": 3,
+                "delay": 64.1500015258789,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 848,
+                "usedGroup": 4,
+                "delay": 64.75,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 5,
+                "editorID": 849,
+                "usedGroup": 4,
+                "delay": 64.80000305175781,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 850,
+                "usedGroup": 3,
+                "delay": 65.25,
+                "duration": 0.0,
+                "opacity": 0.5
+            },
+            {
+                "editorLane": 5,
+                "editorID": 851,
+                "usedGroup": 3,
+                "delay": 65.30000305175781,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 852,
+                "usedGroup": 4,
+                "delay": 66.5,
+                "duration": 0.0,
+                "opacity": 0.10000000149011612
+            },
+            {
+                "editorLane": 5,
+                "editorID": 854,
+                "usedGroup": 4,
+                "delay": 66.55000305175781,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 855,
+                "usedGroup": 1,
+                "delay": 67.0,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 859,
+                "usedGroup": 1,
+                "delay": 67.05000305175781,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 856,
+                "usedGroup": 2,
+                "delay": 67.30000305175781,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 857,
+                "usedGroup": 1,
+                "delay": 67.6500015258789,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 860,
+                "usedGroup": 2,
+                "delay": 67.3499984741211,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 861,
+                "usedGroup": 1,
+                "delay": 67.69999694824219,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 858,
+                "usedGroup": 2,
+                "delay": 68.05000305175781,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 862,
+                "usedGroup": 2,
+                "delay": 68.0999984741211,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 863,
+                "usedGroup": 3,
+                "delay": 68.6500015258789,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 7,
+                "editorID": 866,
+                "usedGroup": 3,
+                "delay": 68.80000305175781,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 867,
+                "usedGroup": 3,
+                "delay": 70.30000305175781,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 7,
+                "editorID": 870,
+                "usedGroup": 3,
+                "delay": 70.44999694824219,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 871,
+                "usedGroup": 3,
+                "delay": 72.05000305175781,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 7,
+                "editorID": 874,
+                "usedGroup": 3,
+                "delay": 72.19999694824219,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 875,
+                "usedGroup": 4,
+                "delay": 73.9000015258789,
+                "duration": 0.30000001192092898,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 876,
+                "usedGroup": 4,
+                "delay": 74.25,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 877,
+                "usedGroup": 4,
+                "delay": 74.5999984741211,
+                "duration": 0.30000001192092898,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 878,
+                "usedGroup": 4,
+                "delay": 74.94999694824219,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1267,
+                "usedGroup": 3,
+                "delay": 75.94999694824219,
+                "duration": 0.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1271,
+                "usedGroup": 4,
+                "delay": 76.75,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1272,
+                "usedGroup": 4,
+                "delay": 76.80000305175781,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1283,
+                "usedGroup": 1,
+                "delay": 80.8499984741211,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1284,
+                "usedGroup": 2,
+                "delay": 81.1500015258789,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1287,
+                "usedGroup": 1,
+                "delay": 80.9000015258789,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1288,
+                "usedGroup": 2,
+                "delay": 81.19999694824219,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1285,
+                "usedGroup": 1,
+                "delay": 81.55000305175781,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1289,
+                "usedGroup": 1,
+                "delay": 81.5999984741211,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1286,
+                "usedGroup": 2,
+                "delay": 81.94999694824219,
+                "duration": 0.0,
+                "opacity": 0.30000001192092898
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1290,
+                "usedGroup": 2,
+                "delay": 82.0,
+                "duration": 0.30000001192092898,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1291,
+                "usedGroup": 4,
+                "delay": 82.55000305175781,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1292,
+                "usedGroup": 4,
+                "delay": 82.5999984741211,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1293,
+                "usedGroup": 4,
+                "delay": 84.1500015258789,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1294,
+                "usedGroup": 4,
+                "delay": 84.19999694824219,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1295,
+                "usedGroup": 4,
+                "delay": 85.8499984741211,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1296,
+                "usedGroup": 4,
+                "delay": 85.9000015258789,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1297,
+                "usedGroup": 4,
+                "delay": 87.6500015258789,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1298,
+                "usedGroup": 4,
+                "delay": 87.69999694824219,
+                "duration": 1.0,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1299,
+                "usedGroup": 5,
+                "delay": 88.8499984741211,
+                "duration": 0.5,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1300,
+                "usedGroup": 4,
+                "delay": 89.5,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1301,
+                "usedGroup": 4,
+                "delay": 89.55000305175781,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1302,
+                "usedGroup": 4,
+                "delay": 90.0999984741211,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1303,
+                "usedGroup": 4,
+                "delay": 90.1500015258789,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1304,
+                "usedGroup": 4,
+                "delay": 90.69999694824219,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1305,
+                "usedGroup": 4,
+                "delay": 90.75,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1306,
+                "usedGroup": 4,
+                "delay": 91.69999694824219,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1307,
+                "usedGroup": 4,
+                "delay": 91.75,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1308,
+                "usedGroup": 4,
+                "delay": 96.19999694824219,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1309,
+                "usedGroup": 4,
+                "delay": 96.25,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1310,
+                "usedGroup": 4,
+                "delay": 96.94999694824219,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1311,
+                "usedGroup": 4,
+                "delay": 97.0,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1312,
+                "usedGroup": 4,
+                "delay": 97.9000015258789,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1313,
+                "usedGroup": 4,
+                "delay": 97.94999694824219,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1314,
+                "usedGroup": 4,
+                "delay": 98.75,
+                "duration": 0.0,
+                "opacity": 0.20000000298023225
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1315,
+                "usedGroup": 4,
+                "delay": 98.80000305175781,
+                "duration": 0.5,
+                "opacity": 0.0
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1316,
+                "usedGroup": 6,
+                "delay": 117.94999694824219,
+                "duration": 1.0,
+                "opacity": 1.0
+            },
+            {
+                "editorLane": 6,
+                "editorID": 1317,
+                "usedGroup": 3,
+                "delay": 80.30000305175781,
+                "duration": 0.5,
+                "opacity": 0.0
+            }
+        ]
+    },
+    "SpriteTriggers": {
+        "sprite_trigger": [
+            {
+                "editorLane": 5,
+                "editorID": 211,
+                "usedGroup": 3,
+                "delay": 13.300000190734864,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 213,
+                "usedGroup": 3,
+                "delay": 13.699999809265137,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 214,
+                "usedGroup": 3,
+                "delay": 14.5,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 216,
+                "usedGroup": 3,
+                "delay": 14.149999618530274,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 215,
+                "usedGroup": 3,
+                "delay": 15.300000190734864,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 217,
+                "usedGroup": 3,
+                "delay": 14.949999809265137,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 218,
+                "usedGroup": 3,
+                "delay": 15.850000381469727,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 219,
+                "usedGroup": 3,
+                "delay": 16.299999237060548,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 220,
+                "usedGroup": 3,
+                "delay": 16.799999237060548,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 221,
+                "usedGroup": 3,
+                "delay": 17.200000762939454,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 222,
+                "usedGroup": 3,
+                "delay": 17.600000381469728,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 223,
+                "usedGroup": 3,
+                "delay": 18.049999237060548,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 224,
+                "usedGroup": 3,
+                "delay": 18.450000762939454,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 225,
+                "usedGroup": 3,
+                "delay": 18.899999618530275,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 226,
+                "usedGroup": 3,
+                "delay": 19.350000381469728,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 227,
+                "usedGroup": 3,
+                "delay": 19.799999237060548,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 228,
+                "usedGroup": 3,
+                "delay": 20.200000762939454,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 229,
+                "usedGroup": 3,
+                "delay": 20.600000381469728,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 230,
+                "usedGroup": 3,
+                "delay": 21.0,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 231,
+                "usedGroup": 3,
+                "delay": 21.450000762939454,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 232,
+                "usedGroup": 3,
+                "delay": 21.850000381469728,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 233,
+                "usedGroup": 3,
+                "delay": 22.350000381469728,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 234,
+                "usedGroup": 3,
+                "delay": 22.700000762939454,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 235,
+                "usedGroup": 3,
+                "delay": 23.100000381469728,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 236,
+                "usedGroup": 3,
+                "delay": 23.549999237060548,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 237,
+                "usedGroup": 3,
+                "delay": 24.0,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 238,
+                "usedGroup": 3,
+                "delay": 24.399999618530275,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 239,
+                "usedGroup": 3,
+                "delay": 24.75,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 240,
+                "usedGroup": 3,
+                "delay": 25.200000762939454,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 241,
+                "usedGroup": 3,
+                "delay": 25.649999618530275,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 242,
+                "usedGroup": 3,
+                "delay": 26.049999237060548,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 243,
+                "usedGroup": 3,
+                "delay": 26.5,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 378,
+                "usedGroup": 3,
+                "delay": 26.700000762939454,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 379,
+                "usedGroup": 3,
+                "delay": 26.950000762939454,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 382,
+                "usedGroup": 3,
+                "delay": 27.299999237060548,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 384,
+                "usedGroup": 3,
+                "delay": 28.399999618530275,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 383,
+                "usedGroup": 3,
+                "delay": 27.950000762939454,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 385,
+                "usedGroup": 3,
+                "delay": 28.899999618530275,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 386,
+                "usedGroup": 3,
+                "delay": 29.25,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 387,
+                "usedGroup": 3,
+                "delay": 29.850000381469728,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 388,
+                "usedGroup": 3,
+                "delay": 30.200000762939454,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 407,
+                "usedGroup": 3,
+                "delay": 33.95000076293945,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 408,
+                "usedGroup": 3,
+                "delay": 34.29999923706055,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 409,
+                "usedGroup": 3,
+                "delay": 34.70000076293945,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 410,
+                "usedGroup": 3,
+                "delay": 35.0,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 411,
+                "usedGroup": 3,
+                "delay": 35.650001525878909,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 412,
+                "usedGroup": 3,
+                "delay": 36.04999923706055,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 413,
+                "usedGroup": 3,
+                "delay": 36.599998474121097,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 414,
+                "usedGroup": 3,
+                "delay": 37.04999923706055,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 467,
+                "usedGroup": 3,
+                "delay": 41.599998474121097,
+                "spritename": "Maestro_Outline.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 597,
+                "usedGroup": 3,
+                "delay": 55.349998474121097,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 598,
+                "usedGroup": 3,
+                "delay": 55.70000076293945,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 599,
+                "usedGroup": 3,
+                "delay": 56.099998474121097,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 600,
+                "usedGroup": 3,
+                "delay": 56.54999923706055,
+                "spritename": "Maestro_Outline.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 601,
+                "usedGroup": 3,
+                "delay": 57.04999923706055,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 602,
+                "usedGroup": 3,
+                "delay": 57.45000076293945,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 603,
+                "usedGroup": 3,
+                "delay": 57.900001525878909,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 604,
+                "usedGroup": 3,
+                "delay": 58.349998474121097,
+                "spritename": "Maestro_Outline.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 609,
+                "usedGroup": 3,
+                "delay": 58.79999923706055,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 610,
+                "usedGroup": 3,
+                "delay": 59.20000076293945,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 611,
+                "usedGroup": 3,
+                "delay": 59.599998474121097,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 612,
+                "usedGroup": 3,
+                "delay": 60.150001525878909,
+                "spritename": "Maestro_Outline.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 619,
+                "usedGroup": 3,
+                "delay": 60.5,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 620,
+                "usedGroup": 3,
+                "delay": 60.900001525878909,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 621,
+                "usedGroup": 3,
+                "delay": 61.29999923706055,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 836,
+                "usedGroup": 3,
+                "delay": 61.79999923706055,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 837,
+                "usedGroup": 3,
+                "delay": 62.20000076293945,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 838,
+                "usedGroup": 3,
+                "delay": 62.599998474121097,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 839,
+                "usedGroup": 3,
+                "delay": 63.04999923706055,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 840,
+                "usedGroup": 3,
+                "delay": 63.599998474121097,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 853,
+                "usedGroup": 3,
+                "delay": 64.0999984741211,
+                "spritename": "Maestro_Outline.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 864,
+                "usedGroup": 3,
+                "delay": 68.6500015258789,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 865,
+                "usedGroup": 3,
+                "delay": 68.80000305175781,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 868,
+                "usedGroup": 3,
+                "delay": 70.30000305175781,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 869,
+                "usedGroup": 3,
+                "delay": 70.44999694824219,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 872,
+                "usedGroup": 3,
+                "delay": 72.05000305175781,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 873,
+                "usedGroup": 3,
+                "delay": 72.19999694824219,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 1268,
+                "usedGroup": 3,
+                "delay": 75.94999694824219,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 1269,
+                "usedGroup": 3,
+                "delay": 76.05000305175781,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 6,
+                "editorID": 1270,
+                "usedGroup": 3,
+                "delay": 76.25,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1273,
+                "usedGroup": 3,
+                "delay": 77.1500015258789,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1274,
+                "usedGroup": 3,
+                "delay": 77.69999694824219,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1275,
+                "usedGroup": 3,
+                "delay": 77.8499984741211,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1276,
+                "usedGroup": 3,
+                "delay": 78.0,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1277,
+                "usedGroup": 3,
+                "delay": 78.1500015258789,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1278,
+                "usedGroup": 3,
+                "delay": 78.30000305175781,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1279,
+                "usedGroup": 3,
+                "delay": 78.9000015258789,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1280,
+                "usedGroup": 3,
+                "delay": 79.44999694824219,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1281,
+                "usedGroup": 3,
+                "delay": 79.9000015258789,
+                "spritename": "Maestro_Battle-Idle_f1.png"
+            },
+            {
+                "editorLane": 5,
+                "editorID": 1282,
+                "usedGroup": 3,
+                "delay": 80.30000305175781,
+                "spritename": "Maestro_Battle-Idle_f2.png"
+            }
+        ]
+    }
+}
