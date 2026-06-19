@@ -15,7 +15,7 @@ public class SelectBattle : MonoBehaviour
     }
     public void LoadThirdBattle()
     {
-        SceneManager.LoadScene("ThirdBattleScene");
+        SceneManager.LoadScene("MaestoBattleScene");
         Time.timeScale = 1;
     }
     public void LoadStoryModeScene()
