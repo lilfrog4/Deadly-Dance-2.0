@@ -37,41 +37,16 @@ public class DialogueSystem : MonoBehaviour
     private string[] current;
     private Color[] currentColors;
     private int index;
+    private Dictionary<string, int> remaining = new Dictionary<string, int>();
     private string sceneToLoad = ""; // Сцена для загрузки после текущего диалога
-    
-    // ★★★ СТАТИЧЕСКИЙ СЛОВАРЬ (общий для всех сцен) ★★★
-    private static Dictionary<string, int> remaining = new Dictionary<string, int>();
-    private static bool isInitialized = false; // Флаг, что словарь уже заполнен
     
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         panel.SetActive(false);
         
-        // ★★★ ИНИЦИАЛИЗИРУЕМ СЛОВАРЬ ТОЛЬКО ОДИН РАЗ ★★★
-        if (!isInitialized)
-        {
-            remaining.Clear();
-            foreach (Dialogue d in dialogues)
-            {
-                remaining[d.name] = d.uses;
-            }
-            isInitialized = true;
-            Debug.Log("DialogueSystem: Словарь инициализирован (первая загрузка)");
-        }
-        else
-        {
-            // Проверяем, нет ли новых диалогов, которых нет в словаре
-            foreach (Dialogue d in dialogues)
-            {
-                if (!remaining.ContainsKey(d.name))
-                {
-                    remaining[d.name] = d.uses;
-                    Debug.Log($"DialogueSystem: Добавлен новый диалог '{d.name}'");
-                }
-            }
-            Debug.Log("DialogueSystem: Словарь уже существует, использования сохранены");
-        }
+        foreach (Dialogue d in dialogues)
+            remaining[d.name] = d.uses;
     }
     
     private void Update()
@@ -93,10 +68,7 @@ public class DialogueSystem : MonoBehaviour
         
         CheckTriggers();
         CheckButtons();
-<<<<<<< Updated upstream
-=======
-        CheckYButton();
->>>>>>> Stashed changes
+        CheckYButton(); // ★★★ НОВЫЙ МЕТОД ★★★
     }
     
     private void ShowPhrase()
@@ -120,7 +92,7 @@ public class DialogueSystem : MonoBehaviour
         {
             if (Mathf.Abs(t.transform.position.x - player.position.x) < 0.5f)
             {
-                int left = GetRemainingUses(t.name);
+                int left = remaining.ContainsKey(t.name) ? remaining[t.name] : 0;
                 if (left != 0) StartDlg(t.name);
                 return;
             }
@@ -136,24 +108,26 @@ public class DialogueSystem : MonoBehaviour
         {
             if (b.activeSelf && Mathf.Abs(b.transform.position.x - player.position.x) < 0.5f)
             {
-                int left = GetRemainingUses(b.name);
+                int left = remaining.ContainsKey(b.name) ? remaining[b.name] : 0;
                 if (left != 0) StartDlg(b.name);
                 return;
             }
         }
     }
     
-<<<<<<< Updated upstream
-=======
+    // ★★★ НОВЫЙ МЕТОД: проверка на клавишу Y ★★★
     private void CheckYButton()
     {
+        // Проверяем нажатие клавиши Y
         if (!Input.GetKeyDown(KeyCode.Y)) return;
         
         Debug.Log("Нажата клавиша Y! Поиск диалога для запуска...");
         
+        // Ищем диалог, который можно запустить без дополнительных условий
+        // Используем первый диалог, у которого остались использования
         foreach (Dialogue d in dialogues)
         {
-            int left = GetRemainingUses(d.name);
+            int left = remaining.ContainsKey(d.name) ? remaining[d.name] : 0;
             
             if (left > 0)
             {
@@ -166,7 +140,6 @@ public class DialogueSystem : MonoBehaviour
         Debug.Log("Нет доступных диалогов для запуска по клавише Y");
     }
     
->>>>>>> Stashed changes
     private void StartDlg(string name)
     {
         Dialogue currentDialogue = null;
@@ -192,16 +165,8 @@ public class DialogueSystem : MonoBehaviour
         panel.SetActive(true);
         ShowPhrase();
         
-        // ★★★ УМЕНЬШАЕМ ИСПОЛЬЗОВАНИЕ ★★★
-        if (remaining.ContainsKey(name) && remaining[name] > 0)
-        {
-            remaining[name]--;
-        }
-        
-        if (GetRemainingUses(name) == 0)
-        {
-            Debug.Log($"Диалог {name} закончился");
-        }
+        if (remaining[name] > 0) remaining[name]--;
+        if (remaining[name] == 0) Debug.Log($"Диалог {name} закончился");
     }
     
     private void Close()
@@ -213,6 +178,7 @@ public class DialogueSystem : MonoBehaviour
         
         PlayerController.IsMovementBlocked = false;
         
+        // Загружаем следующую сцену, если указана
         if (!string.IsNullOrEmpty(sceneToLoad))
         {
             Debug.Log($"Загрузка сцены: {sceneToLoad}");
@@ -222,7 +188,6 @@ public class DialogueSystem : MonoBehaviour
         sceneToLoad = "";
     }
     
-    // ★★★ ПУБЛИЧНЫЙ МЕТОД ДЛЯ ПОЛУЧЕНИЯ ИСПОЛЬЗОВАНИЙ ★★★
     public int GetRemainingUses(string triggerName)
     {
         if (remaining.ContainsKey(triggerName))
@@ -235,43 +200,8 @@ public class DialogueSystem : MonoBehaviour
         return 0;
     }
     
-<<<<<<< Updated upstream
-    // ========== ДОБАВЛЕННЫЙ МЕТОД ==========
-=======
-    // ★★★ ПРОВЕРКА, АКТИВЕН ЛИ ДИАЛОГ ★★★
->>>>>>> Stashed changes
     public bool IsDialogueActive()
     {
         return isActive;
     }
-<<<<<<< Updated upstream
-    // ======================================
-=======
-    
-    // ★★★ НОВЫЙ МЕТОД: Сброс всех использований (для отладки) ★★★
-    public static void ResetAllUses()
-    {
-        remaining.Clear();
-        isInitialized = false;
-        Debug.Log("DialogueSystem: Все использования сброшены");
-    }
-    
-    // ★★★ НОВЫЙ МЕТОД: Сброс конкретного диалога ★★★
-    public static void ResetUses(string dialogueName, int newUses)
-    {
-        if (remaining.ContainsKey(dialogueName))
-        {
-            remaining[dialogueName] = newUses;
-            Debug.Log($"DialogueSystem: Диалог '{dialogueName}' сброшен до {newUses} использований");
-        }
-    }
-    
-    // ★★★ НОВЫЙ МЕТОД: Получить количество использований (статический) ★★★
-    public static int GetUses(string dialogueName)
-    {
-        if (remaining.ContainsKey(dialogueName))
-            return remaining[dialogueName];
-        return 0;
-    }
->>>>>>> Stashed changes
 }

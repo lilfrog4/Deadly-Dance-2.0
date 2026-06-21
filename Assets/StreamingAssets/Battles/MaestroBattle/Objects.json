@@ -1,0 +1,76 @@
+{
+    "scene_object": [
+        {
+            "editorID": 1,
+            "objectIDs": [
+                1
+            ],
+            "spriteName": "Maestro_Outline.png",
+            "alpha": 0.0,
+            "Xpos": -100.0,
+            "Ypos": 50.0,
+            "scale": 0.5,
+            "zOrder": 10
+        },
+        {
+            "editorID": 2,
+            "objectIDs": [
+                2
+            ],
+            "spriteName": "Maestro_Outline.png",
+            "alpha": 0.0,
+            "Xpos": 100.0,
+            "Ypos": 50.0,
+            "scale": 0.5,
+            "zOrder": 10
+        },
+        {
+            "editorID": 3,
+            "objectIDs": [
+                3
+            ],
+            "spriteName": "Maestro_Outline.png",
+            "alpha": 0.0,
+            "Xpos": 0.0,
+            "Ypos": 60.0,
+            "scale": 0.5,
+            "zOrder": 10
+        },
+        {
+            "editorID": 4,
+            "objectIDs": [
+                4
+            ],
+            "spriteName": "Glow.png",
+            "alpha": 0.0,
+            "Xpos": 0.0,
+            "Ypos": 60.0,
+            "scale": 0.699999988079071,
+            "zOrder": 9
+        },
+        {
+            "editorID": 5,
+            "objectIDs": [
+                5
+            ],
+            "spriteName": "Maestro_Battle-Angered_f1.png",
+            "alpha": 0.0,
+            "Xpos": 0.0,
+            "Ypos": 65.0,
+            "scale": 0.5,
+            "zOrder": 11
+        },
+        {
+            "editorID": 7,
+            "objectIDs": [
+                6
+            ],
+            "spriteName": "black.png",
+            "alpha": 0.0,
+            "Xpos": 0.0,
+            "Ypos": 0.0,
+            "scale": 10.0,
+            "zOrder": 185
+        }
+    ]
+}

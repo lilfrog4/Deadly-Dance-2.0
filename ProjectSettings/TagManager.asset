@@ -11,6 +11,7 @@ TagManager:
   - Note
   - Trigger
   - BattleList
+  - Ladder
   layers:
   - Default
   - TransparentFX

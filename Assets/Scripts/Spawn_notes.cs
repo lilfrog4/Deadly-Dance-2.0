@@ -148,6 +148,50 @@ public class Spawn_notes : MonoBehaviour
     public AllNoteList AllNotes = new AllNoteList();
 
 
+    [System.Serializable]
+    public class Alpha_Trigger
+    {
+        public int editorLane;
+        public int editorID;
+        public int usedGroup;
+        public float delay;
+        public float duration;
+        public float opacity;
+    }
+
+    [System.Serializable]
+    public class AlphaTriggerList
+    {
+        public Alpha_Trigger[] alpha_trigger = new Alpha_Trigger[0];
+    }
+    public AlphaTriggerList AllAlphaTriggers = new AlphaTriggerList();
+
+    [System.Serializable]
+    public class Sprite_Trigger
+    {
+        public int editorLane;
+        public int editorID;
+        public int usedGroup;
+        public float delay;
+        public string spritename;
+    }
+
+    [System.Serializable]
+    public class SpriteTriggerList
+    {
+        public Sprite_Trigger[] sprite_trigger = new Sprite_Trigger[0];
+    }
+    public SpriteTriggerList AllSpriteTriggers = new SpriteTriggerList();
+
+    [System.Serializable]
+    public class AllTriggerList
+    {
+        public AlphaTriggerList AlphaTriggers = new AlphaTriggerList();
+        public SpriteTriggerList SpriteTriggers = new SpriteTriggerList();
+    }
+    public AllTriggerList AllTriggers = new AllTriggerList();
+
+
     private void LoadBattleData()
     {
         if (CampaignBattle == false)
@@ -159,10 +203,11 @@ public class Spawn_notes : MonoBehaviour
 
         string chartPath = Path.Combine(Folder, "Battles", BattleName, "Chart.json");
         string objectsPath = Path.Combine(Folder, "Battles", BattleName, "Objects.json");
+        string triggersPath = Path.Combine(Folder, "Battles", BattleName, "Triggers.json");
 
         string chartString = File.ReadAllText(chartPath);
         string objectsString = File.ReadAllText(objectsPath);
-        // Debug.Log(objectsString.Length);
+        string triggersString = File.ReadAllText(triggersPath);
 
         if (!(chartString == ""))
         {
@@ -172,9 +217,15 @@ public class Spawn_notes : MonoBehaviour
         {
             AllSceneObjects = JsonUtility.FromJson<SceneObjectList>(objectsString);
         }
+        if (!(triggersString == ""))
+        {
+            AllTriggers = JsonUtility.FromJson<AllTriggerList>(triggersString);
+        }
 
-        // Debug.Log(AllSceneObjects.scene_object.Length);
-        // Debug.Log(AllNotes.SimpleNotes.simple_note.Length);
+        AllAlphaTriggers = AllTriggers.AlphaTriggers;
+        AllSpriteTriggers = AllTriggers.SpriteTriggers;
+
+
         simplenote_list = AllNotes.SimpleNotes;
         wallnote_list = AllNotes.WallNotes;
         crackernote_list = AllNotes.CrackerNotes;
@@ -274,6 +325,33 @@ public class Spawn_notes : MonoBehaviour
                 }
             }
         }
+
+        if (AllAlphaTriggers.alpha_trigger != null)
+        {
+            foreach (Alpha_Trigger AT in AllAlphaTriggers.alpha_trigger)
+            {
+                if (SOdict.ContainsKey(AT.usedGroup))
+                {
+                    StartCoroutine(ActivateAlphaTrigger(AT.usedGroup, AT.delay, AT.opacity, AT.duration));
+                }
+
+                if (AT.delay > loopDelay)
+                {
+                    loopDelay = AT.delay;
+                }
+            }
+        }
+
+        if (AllSpriteTriggers.sprite_trigger != null)
+        {
+            foreach (Sprite_Trigger ST in AllSpriteTriggers.sprite_trigger)
+            {
+                if (SOdict.ContainsKey(ST.usedGroup))
+                {
+                    StartCoroutine(ActivateSpriteTrigger(ST.usedGroup, ST.delay, ST.spritename));
+                }
+            }
+        }
     }
 
     void Start()
@@ -306,6 +384,58 @@ public class Spawn_notes : MonoBehaviour
                 StartCoroutine(Loop_Chart());
             }
         }
+    }
+
+    IEnumerator ActivateSpriteTrigger(int group, float delay, string spritename)
+    {
+        yield return new WaitForSeconds(delay);
+
+        foreach (GameObject SO in SOdict[group])
+        {
+            if (SpriteDict.ContainsKey(spritename))
+            {
+                SO.GetComponent<SpriteRenderer>().sprite = SpriteDict[spritename];
+            }
+        }
+    }
+
+    IEnumerator ActivateAlphaTrigger(int group, float delay, float opacity, float duration)
+    {
+        yield return new WaitForSeconds(delay);
+
+        foreach (GameObject SO in SOdict[group])
+        {
+            Coroutine AlphaCoroutine = SO.GetComponent<SceneObjectValues>().AlphaCoroutine;
+
+            if (AlphaCoroutine != null)
+            {
+                Debug.Log("stopped");
+                StopCoroutine(AlphaCoroutine);
+            }
+            SO.GetComponent<SceneObjectValues>().AlphaCoroutine = StartCoroutine(ProcessAlphaTrigger(SO, group, opacity, duration));
+        }
+    }
+
+    IEnumerator ProcessAlphaTrigger(GameObject SO, int group, float opacity, float duration)
+    {
+        Debug.Log("alpha");
+        SpriteRenderer ObjectSR = SO.GetComponent<SpriteRenderer>();
+        float StartAlpha = ObjectSR.color.a;
+        float deltaAlpha = opacity - StartAlpha;
+        // Debug.Log(StartAlpha);
+        // SO.GetComponent<SceneObjectValues>().AlphaCoroutine = StartCoroutine(ActivateAlphaTrigger());
+        float timer = 0f;
+
+        while (timer < duration)
+        {
+            Debug.Log(SO.GetComponent<SceneObjectValues>().AlphaCoroutine);
+            float currentAlpha = StartAlpha + deltaAlpha * (timer / duration);
+            // Debug.Log(currentAlpha);
+            ObjectSR.color = new Color(1f, 1f, 1f, currentAlpha);
+            yield return null;
+            timer += Time.deltaTime;
+        }
+        ObjectSR.color = new Color(1f, 1f, 1f, opacity);
     }
 
     IEnumerator Spawn_simple_note(int width, int speed, List<float> color, List<int> rand_lanes, float delay, bool Absorbable, bool Punchable)
@@ -495,7 +625,7 @@ public class Spawn_notes : MonoBehaviour
         InstCrackerNote.GetComponent<NoteValues>().Punchable = Punchable;
         InstCrackerNote.GetComponent<NoteValues>().NoteColor = (int)(color[0] * 1000000 + color[1] * 1000 + color[2]);
     }
-
+    
     IEnumerator Loop_Chart()
     {
         loopable = false;
@@ -525,6 +655,20 @@ public class Spawn_notes : MonoBehaviour
             {
                 loopDelay = i.delay;
             }
+        }
+
+        foreach (Alpha_Trigger AT in AllAlphaTriggers.alpha_trigger)
+        {
+            if (SOdict.ContainsKey(AT.usedGroup))
+            {
+                StartCoroutine(ActivateAlphaTrigger(AT.usedGroup, AT.delay, AT.opacity, AT.duration));
+            }
+
+            if (AT.delay > loopDelay)
+            {
+                loopDelay = AT.delay;
+            }
+            
         }
 
         loopable = true;
