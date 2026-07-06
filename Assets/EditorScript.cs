@@ -142,7 +142,7 @@ public class EditorScript : MonoBehaviour
     private int Closest_Lane;
     private float Closest_Y;        // Ближайшая Y-координата точки на экране, кратная 20.
     private float Local_Y;          // Closest_Y, переведенная в координаты контейнера нот.
-    private float YParallax = 0f;       // Смещение по вертикали, кратно 20 (В САМОМ НАЧАЛЕ ТРЕКА РАВЕН -300, НАДО УЧЕСТЬ)
+    private float YParallax = 0f;       // Смещение по вертикали, кратно 20
     // private float GlobalNCStep;
     private Vector3 MousePosition;
     public List<float> Occupied_Coords = new List<float>();         // Занятые координаты, чтоб ноты не ставились друг на друга.
@@ -2309,7 +2309,7 @@ public class EditorScript : MonoBehaviour
             // YParallax += 20f * YParallaxMultiplier;
             sound.time = PlayFromTime();
 
-            // DrawChunks(false);
+            DrawChunks(false);
         }
         else if (Scroll.y < 0 & YParallax > 0f) // убрал условие !PlaybackActive(мб не надо)
         {
@@ -2334,7 +2334,7 @@ public class EditorScript : MonoBehaviour
                 // YParallax -= 20f * YParallaxMultiplier;
                 sound.time = PlayFromTime();
 
-                // DrawChunks(false);
+                DrawChunks(false);
             }
             // ResizeContainer();
             // Debug.Log("Resized");
@@ -2702,7 +2702,7 @@ public class EditorScript : MonoBehaviour
     void Update()
     {
         CurrentChunk = (int)Math.Ceiling(Math.Round(YParallax / 400f / 0.7, 2));
-        DrawChunks(false);
+        // DrawChunks(false);
         // Debug.Log(CurrentChunk);
         if (PlaybackActive)
         {

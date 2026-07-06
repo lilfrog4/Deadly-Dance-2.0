@@ -50,7 +50,8 @@ public class AbsorbHitboxScript : MonoBehaviour
 
         foreach (RaycastHit RChit in hit)
         {
-            if (RChit.transform.gameObject.CompareTag("Note"))
+            bool absorbable = RChit.transform.parent.gameObject.GetComponent<NoteValues>().Absorbable;
+            if (RChit.transform.gameObject.CompareTag("Note") & absorbable == true)
             {
                 if (AwaitingHoldColor == true)
                 {
@@ -65,10 +66,9 @@ public class AbsorbHitboxScript : MonoBehaviour
                     AwaitingHoldColor = false;
                 }
                 
-                ChargeString.color = new Color((int)(HoldColor / 1000000f) / 255f, (HoldColor % 1000000 - HoldColor % 1000) / 255000f, (int)(HoldColor % 1000f) / 255f);
                 // Debug.Log((HoldColor % 1000000 - HoldColor % 1000) / 255000f);
                 
-                if (RChit.transform.parent.gameObject.GetComponent<NoteValues>().Absorbable == true & RChit.transform.parent.gameObject.GetComponent<NoteValues>().NoteColor == HoldColor)
+                if (absorbable == true & RChit.transform.parent.gameObject.GetComponent<NoteValues>().NoteColor == HoldColor)
                 {
                     float randomZangle = UnityEngine.Random.Range(0f, 360f);
                     Quaternion ZRot = Quaternion.Euler(0f, 0f, randomZangle);
@@ -84,6 +84,7 @@ public class AbsorbHitboxScript : MonoBehaviour
                     }
 
                     ChargeString.text = CV.Charge.ToString();
+                    ChargeString.color = new Color((int)(HoldColor / 1000000f) / 255f, (HoldColor % 1000000 - HoldColor % 1000) / 255000f, (int)(HoldColor % 1000f) / 255f);
                     
                     CV.ChargeColor = HoldColor;
 
